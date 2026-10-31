@@ -1,0 +1,15 @@
+id: software-engineer-2
+role: Software Engineer
+color_name: orange
+palette:
+  primary: "#fa8f1f"
+  highlight: "#fcc845"
+  outline: "#472012"
+  screen: "#250000"
+  glyph: "#f0f0b8"
+face: focused squinting eyes drawn as "> <"
+emblem: none
+accessories:
+  - a white mechanical keyboard held in front of the body with both hands
+  - a brown tool belt with a gold buckle, a screwdriver and a small wrench
+example: software-engineer-2.webp

@@ -1,0 +1,15 @@
+id: chief-of-staff
+role: Chief of Staff
+color_name: butter yellow
+palette:
+  primary: "#fde99f"
+  highlight: "#fbf0c8"
+  outline: "#5e4725"
+  screen: "#300001"
+  glyph: "#f0e8a0"
+face: happy closed eyes drawn as two upward arcs (^ ^), a calm friendly smile
+emblem: none
+accessories:
+  - a small maroon necktie
+  - a golden clipboard held in its left hand
+example: chief-of-staff.webp

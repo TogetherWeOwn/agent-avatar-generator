@@ -1,0 +1,14 @@
+id: software-engineer-1
+role: Software Engineer
+color_name: teal
+palette:
+  primary: "#02899c"
+  highlight: "#3dcebb"
+  outline: "#042a3c"
+  screen: "#00102b"
+  glyph: "#b8f0d0"
+face: a terminal prompt ">_" in place of eyes
+emblem: a small mint circuit-trace pattern on the chest
+accessories:
+  - a mint wrench held up in its left hand
+example: software-engineer-1.webp

@@ -1,0 +1,9 @@
+Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.
+
+Character: $character.
+Color palette ($color_name): head and body $primary, highlights $highlight, outlines and shadows $outline, face screen $screen, glowing face symbols $glyph. Recolor the whole character to this palette; do not copy the colors of the reference images.
+Face: $face, glowing in $glyph on the dark screen.
+Chest emblem: $emblem.
+Accessories: $accessories.
+
+Background: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.

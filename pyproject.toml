@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-avatar-generator"
+version = "0.1.0"
+description = "Generate chunky pixel-art agent avatars in a consistent mascot style from presets and reference images."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["Pillow>=10.0", "PyYAML>=6.0"]
+
+[project.optional-dependencies]
+openai = ["openai>=1.99"]
+test = ["pytest>=7"]
+
+[project.scripts]
+agent-avatar = "agent_avatar_generator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agent_avatar_generator = ["presets/*.yaml", "templates/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
