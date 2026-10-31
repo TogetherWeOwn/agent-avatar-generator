@@ -1,0 +1,14 @@
+id: qa-reviewer
+role: QA Reviewer
+color_name: emerald
+palette:
+  primary: "#28e179"
+  highlight: "#85f78d"
+  outline: "#054830"
+  screen: "#00160c"
+  glyph: "#b0f098"
+face: happy closed eyes drawn as two upward chevrons (^ ^)
+emblem: a light green checkmark on the chest
+accessories:
+  - a magnifying glass with a mint lens held up in its right hand
+example: qa-reviewer-emerald.webp

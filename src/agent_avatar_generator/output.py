@@ -1,0 +1,113 @@
+"""Output filenames, size validation and transparent PNG/WebP writing."""
+
+from __future__ import annotations
+
+import io
+import re
+import unicodedata
+from pathlib import Path
+
+from PIL import Image
+
+MIN_SIZE = 32
+MAX_SIZE = 2048
+FORMATS = {".png": "PNG", ".webp": "WEBP"}
+_MAX_STEM = 64
+
+
+class OutputError(ValueError):
+    """Raised for invalid output paths, sizes or image data."""
+
+
+def safe_stem(text: str | None, fallback: str = "avatar") -> str:
+    """Reduce arbitrary text to a lowercase ``[a-z0-9-]`` filename stem."""
+    if not text:
+        return fallback
+    ascii_text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+    stem = re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-")
+    stem = stem[:_MAX_STEM].rstrip("-")
+    return stem or fallback
+
+
+def validate_size(size: int) -> int:
+    if isinstance(size, bool) or not isinstance(size, int):
+        raise OutputError(f"size must be an integer, got {size!r}")
+    if not MIN_SIZE <= size <= MAX_SIZE:
+        raise OutputError(f"size must be between {MIN_SIZE} and {MAX_SIZE} pixels, got {size}")
+    return size
+
+
+def output_format(path: Path) -> str:
+    suffix = path.suffix.lower()
+    if suffix not in FORMATS:
+        raise OutputError(f"output must end in .png or .webp, got {path.name!r}")
+    return FORMATS[suffix]
+
+
+def resolve_output_path(
+    output: str | None,
+    out_dir: str,
+    stem_source: str | None,
+    fmt: str = "png",
+    overwrite: bool = False,
+) -> Path:
+    """Pick the output path.
+
+    An explicit ``output`` path is used as given (only the extension is checked).
+    Otherwise the filename is derived from ``stem_source`` and is guaranteed to
+    land directly inside ``out_dir``.
+    """
+    if output:
+        path = Path(output)
+        if path.name in ("", ".", ".."):
+            raise OutputError(f"invalid output path {output!r}")
+    else:
+        if fmt not in ("png", "webp"):
+            raise OutputError(f"format must be png or webp, got {fmt!r}")
+        path = Path(out_dir) / f"{safe_stem(stem_source)}.{fmt}"
+        if path.resolve().parent != Path(out_dir).resolve():
+            raise OutputError(f"derived output path escapes {out_dir!r}")
+    output_format(path)
+    if path.exists() and not overwrite:
+        raise OutputError(f"{path} already exists (use --overwrite to replace it)")
+    return path
+
+
+def has_transparency(image: Image.Image) -> bool:
+    """True if the image has an alpha channel with at least one fully transparent pixel."""
+    if image.mode != "RGBA":
+        if "transparency" not in image.info and image.mode not in ("LA", "PA"):
+            return False
+        image = image.convert("RGBA")
+    low, _ = image.getchannel("A").getextrema()
+    return low == 0
+
+
+def finalize_image(data: bytes, size: int) -> tuple[Image.Image, bool]:
+    """Decode generated image bytes, resize to ``size`` x ``size`` and report transparency."""
+    validate_size(size)
+    try:
+        image = Image.open(io.BytesIO(data))
+        image.load()
+    except Exception as exc:  # Pillow raises several types for bad data
+        raise OutputError(f"generated data is not a readable image: {exc}") from exc
+    transparent = has_transparency(image)
+    image = image.convert("RGBA")
+    if image.width != image.height:
+        side = max(image.width, image.height)
+        canvas = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+        canvas.paste(image, ((side - image.width) // 2, (side - image.height) // 2))
+        image = canvas
+    if image.size != (size, size):
+        # Nearest-neighbour keeps pixel-art edges crisp.
+        image = image.resize((size, size), Image.Resampling.NEAREST)
+    return image, transparent
+
+
+def save_image(image: Image.Image, path: Path) -> None:
+    fmt = output_format(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if fmt == "WEBP":
+        image.save(path, "WEBP", lossless=True, exact=True)
+    else:
+        image.save(path, "PNG", optimize=True)

@@ -1,0 +1,14 @@
+id: devops-engineer
+role: DevOps Engineer
+color_name: coral
+palette:
+  primary: "#f85053"
+  highlight: "#fb756d"
+  outline: "#811429"
+  screen: "#2a000e"
+  glyph: "#f0f0d8"
+face: a winking terminal prompt ">_" with the underscore curved like a closed eye
+emblem: none
+accessories:
+  - a black server-rack backpack with small orange status LEDs and a rocket sticker
+example: devops-engineer-coral.webp

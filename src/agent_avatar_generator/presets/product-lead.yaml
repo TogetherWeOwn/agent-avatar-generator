@@ -1,0 +1,14 @@
+id: product-lead
+role: Product Lead
+color_name: magenta
+palette:
+  primary: "#fb5dba"
+  highlight: "#fca6dc"
+  outline: "#510029"
+  screen: "#2a0016"
+  glyph: "#f0c8f0"
+face: a winking terminal prompt ">_" with the underscore curved like a closed eye
+emblem: a small white lightbulb icon on the chest
+accessories:
+  - a white clipboard with a pink roadmap / flow diagram held in its left hand
+example: product-lead-magenta.webp

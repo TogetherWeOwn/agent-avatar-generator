@@ -1,0 +1,14 @@
+id: engineering-lead
+role: Engineering Lead
+color_name: violet
+palette:
+  primary: "#673bef"
+  highlight: "#9d81f8"
+  outline: "#22125c"
+  screen: "#160036"
+  glyph: "#c0f0e0"
+face: a terminal prompt ">_" in place of eyes
+emblem: a small mint org-chart / hierarchy icon on the chest
+accessories:
+  - three thin antennae on top of the head, each ending in a glowing mint bulb
+example: engineering-lead.webp

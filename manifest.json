@@ -1,0 +1,317 @@
+{
+  "provenance": "The example images are the approved TWO agent avatars. They were AI-generated for TWO with an image-generation model before this tool existed; they are stored byte-for-byte as approved. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+  "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
+  "examples": [
+    {
+      "file": "examples/chief-of-staff.webp",
+      "preset": "chief-of-staff",
+      "sha256": "456c8a54d66f7d3199a2d81ddcf7abf004ff5d005f4c92903789926237d30858",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset chief-of-staff",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Chief of Staff",
+          "palette": {
+            "primary": "#fde99f",
+            "highlight": "#fbf0c8",
+            "outline": "#5e4725",
+            "screen": "#300001",
+            "glyph": "#f0e8a0"
+          },
+          "color_name": "butter yellow",
+          "name": null,
+          "face": "happy closed eyes drawn as two upward arcs (^ ^), a calm friendly smile",
+          "emblem": "none",
+          "accessories": [
+            "a small maroon necktie",
+            "a golden clipboard held in its left hand"
+          ],
+          "preset_id": "chief-of-staff"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Chief of Staff.\nColor palette (butter yellow): head and body #fde99f, highlights #fbf0c8, outlines and shadows #5e4725, face screen #300001, glowing face symbols #f0e8a0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: happy closed eyes drawn as two upward arcs (^ ^), a calm friendly smile, glowing in #f0e8a0 on the dark screen.\nChest emblem: none.\nAccessories: a small maroon necktie; a golden clipboard held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/chief-of-staff.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/devops-engineer-coral.webp",
+      "preset": "devops-engineer",
+      "sha256": "d422b27d59a5c60f82fe881595d1473807574128b3edf9dd789720e3259b5131",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset devops-engineer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "DevOps Engineer",
+          "palette": {
+            "primary": "#f85053",
+            "highlight": "#fb756d",
+            "outline": "#811429",
+            "screen": "#2a000e",
+            "glyph": "#f0f0d8"
+          },
+          "color_name": "coral",
+          "name": null,
+          "face": "a winking terminal prompt \">_\" with the underscore curved like a closed eye",
+          "emblem": "none",
+          "accessories": [
+            "a black server-rack backpack with small orange status LEDs and a rocket sticker"
+          ],
+          "preset_id": "devops-engineer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: DevOps Engineer.\nColor palette (coral): head and body #f85053, highlights #fb756d, outlines and shadows #811429, face screen #2a000e, glowing face symbols #f0f0d8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a winking terminal prompt \">_\" with the underscore curved like a closed eye, glowing in #f0f0d8 on the dark screen.\nChest emblem: none.\nAccessories: a black server-rack backpack with small orange status LEDs and a rocket sticker.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/devops-engineer-coral.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/engineering-lead.webp",
+      "preset": "engineering-lead",
+      "sha256": "b5e49e3bf0db960185082faa9c9f4d64f74eafe556371a7539795e07fc64ba52",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset engineering-lead",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Engineering Lead",
+          "palette": {
+            "primary": "#673bef",
+            "highlight": "#9d81f8",
+            "outline": "#22125c",
+            "screen": "#160036",
+            "glyph": "#c0f0e0"
+          },
+          "color_name": "violet",
+          "name": null,
+          "face": "a terminal prompt \">_\" in place of eyes",
+          "emblem": "a small mint org-chart / hierarchy icon on the chest",
+          "accessories": [
+            "three thin antennae on top of the head, each ending in a glowing mint bulb"
+          ],
+          "preset_id": "engineering-lead"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Engineering Lead.\nColor palette (violet): head and body #673bef, highlights #9d81f8, outlines and shadows #22125c, face screen #160036, glowing face symbols #c0f0e0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a terminal prompt \">_\" in place of eyes, glowing in #c0f0e0 on the dark screen.\nChest emblem: a small mint org-chart / hierarchy icon on the chest.\nAccessories: three thin antennae on top of the head, each ending in a glowing mint bulb.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/engineering-lead.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/product-lead-magenta.webp",
+      "preset": "product-lead",
+      "sha256": "fc57b529ec84c47314ec1d816dcbf97bd98ff254bbd86fdf0021a93f19cee93e",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset product-lead",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Product Lead",
+          "palette": {
+            "primary": "#fb5dba",
+            "highlight": "#fca6dc",
+            "outline": "#510029",
+            "screen": "#2a0016",
+            "glyph": "#f0c8f0"
+          },
+          "color_name": "magenta",
+          "name": null,
+          "face": "a winking terminal prompt \">_\" with the underscore curved like a closed eye",
+          "emblem": "a small white lightbulb icon on the chest",
+          "accessories": [
+            "a white clipboard with a pink roadmap / flow diagram held in its left hand"
+          ],
+          "preset_id": "product-lead"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Product Lead.\nColor palette (magenta): head and body #fb5dba, highlights #fca6dc, outlines and shadows #510029, face screen #2a0016, glowing face symbols #f0c8f0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a winking terminal prompt \">_\" with the underscore curved like a closed eye, glowing in #f0c8f0 on the dark screen.\nChest emblem: a small white lightbulb icon on the chest.\nAccessories: a white clipboard with a pink roadmap / flow diagram held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/product-lead-magenta.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/qa-reviewer-emerald.webp",
+      "preset": "qa-reviewer",
+      "sha256": "cc4ed8c57a7c613aaf0a9b7322ed2e1f1dfc6b2d4be70bbb97a44c9cff558c0a",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset qa-reviewer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "QA Reviewer",
+          "palette": {
+            "primary": "#28e179",
+            "highlight": "#85f78d",
+            "outline": "#054830",
+            "screen": "#00160c",
+            "glyph": "#b0f098"
+          },
+          "color_name": "emerald",
+          "name": null,
+          "face": "happy closed eyes drawn as two upward chevrons (^ ^)",
+          "emblem": "a light green checkmark on the chest",
+          "accessories": [
+            "a magnifying glass with a mint lens held up in its right hand"
+          ],
+          "preset_id": "qa-reviewer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: QA Reviewer.\nColor palette (emerald): head and body #28e179, highlights #85f78d, outlines and shadows #054830, face screen #00160c, glowing face symbols #b0f098. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: happy closed eyes drawn as two upward chevrons (^ ^), glowing in #b0f098 on the dark screen.\nChest emblem: a light green checkmark on the chest.\nAccessories: a magnifying glass with a mint lens held up in its right hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/qa-reviewer-emerald.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/software-engineer-1.webp",
+      "preset": "software-engineer-1",
+      "sha256": "478f1f6ca35985d70bee792a1148dcb8202d725b0e68b58ab23298d0382e2971",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset software-engineer-1",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Software Engineer",
+          "palette": {
+            "primary": "#02899c",
+            "highlight": "#3dcebb",
+            "outline": "#042a3c",
+            "screen": "#00102b",
+            "glyph": "#b8f0d0"
+          },
+          "color_name": "teal",
+          "name": null,
+          "face": "a terminal prompt \">_\" in place of eyes",
+          "emblem": "a small mint circuit-trace pattern on the chest",
+          "accessories": [
+            "a mint wrench held up in its left hand"
+          ],
+          "preset_id": "software-engineer-1"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Software Engineer.\nColor palette (teal): head and body #02899c, highlights #3dcebb, outlines and shadows #042a3c, face screen #00102b, glowing face symbols #b8f0d0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a terminal prompt \">_\" in place of eyes, glowing in #b8f0d0 on the dark screen.\nChest emblem: a small mint circuit-trace pattern on the chest.\nAccessories: a mint wrench held up in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/software-engineer-1.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/software-engineer-2.webp",
+      "preset": "software-engineer-2",
+      "sha256": "054544449cff6934f33ff44a5531af2b0e1169050226409944fa3ba6a11ac3f8",
+      "width": 1254,
+      "height": 1254,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset software-engineer-2",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Software Engineer",
+          "palette": {
+            "primary": "#fa8f1f",
+            "highlight": "#fcc845",
+            "outline": "#472012",
+            "screen": "#250000",
+            "glyph": "#f0f0b8"
+          },
+          "color_name": "orange",
+          "name": null,
+          "face": "focused squinting eyes drawn as \"> <\"",
+          "emblem": "none",
+          "accessories": [
+            "a white mechanical keyboard held in front of the body with both hands",
+            "a brown tool belt with a gold buckle, a screwdriver and a small wrench"
+          ],
+          "preset_id": "software-engineer-2"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Software Engineer.\nColor palette (orange): head and body #fa8f1f, highlights #fcc845, outlines and shadows #472012, face screen #250000, glowing face symbols #f0f0b8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: focused squinting eyes drawn as \"> <\", glowing in #f0f0b8 on the dark screen.\nChest emblem: none.\nAccessories: a white mechanical keyboard held in front of the body with both hands; a brown tool belt with a gold buckle, a screwdriver and a small wrench.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/software-engineer-2.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    }
+  ]
+}
