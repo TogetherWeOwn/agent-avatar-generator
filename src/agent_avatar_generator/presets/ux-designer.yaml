@@ -1,0 +1,15 @@
+id: ux-designer
+role: Product Designer (UX)
+color_name: lilac
+palette:
+  primary: "#c39bf6"
+  highlight: "#e8d6ff"
+  outline: "#3d1f66"
+  screen: "#120722"
+  glyph: "#ffd6f2"
+face: friendly round dot eyes with a small smile
+emblem: a tiny pink pen-tool bezier curve icon on the chest
+accessories:
+  - a small paint palette held in its left hand
+  - a stylus pencil tucked behind the head
+example: ux-designer-lilac.webp

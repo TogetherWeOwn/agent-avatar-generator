@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars. They were AI-generated for TWO with an image-generation model before this tool existed; they are stored byte-for-byte as approved. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer and ux-designer examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -225,6 +225,50 @@
       }
     },
     {
+      "file": "examples/security-engineer-gunmetal.webp",
+      "preset": "security-engineer",
+      "sha256": "9169c81c766f9c1277bc4f6a627d830ea651e513c2b6fbaf8ab764baf45b6f79",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset security-engineer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Security Engineer",
+          "palette": {
+            "primary": "#7d8ca3",
+            "highlight": "#c3cede",
+            "outline": "#1f2734",
+            "screen": "#070b12",
+            "glyph": "#7cf0ff"
+          },
+          "color_name": "gunmetal steel",
+          "name": null,
+          "face": "calm watchful eyes drawn as two short horizontal bars (- -)",
+          "emblem": "a small cyan shield with a keyhole on the chest",
+          "accessories": [
+            "a chunky golden padlock held in its right hand"
+          ],
+          "preset_id": "security-engineer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Security Engineer.\nColor palette (gunmetal steel): head and body #7d8ca3, highlights #c3cede, outlines and shadows #1f2734, face screen #070b12, glowing face symbols #7cf0ff. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: calm watchful eyes drawn as two short horizontal bars (- -), glowing in #7cf0ff on the dark screen.\nChest emblem: a small cyan shield with a keyhole on the chest.\nAccessories: a chunky golden padlock held in its right hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/security-engineer-gunmetal.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
       "file": "examples/software-engineer-1.webp",
       "preset": "software-engineer-1",
       "sha256": "478f1f6ca35985d70bee792a1148dcb8202d725b0e68b58ab23298d0382e2971",
@@ -303,6 +347,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Software Engineer.\nColor palette (orange): head and body #fa8f1f, highlights #fcc845, outlines and shadows #472012, face screen #250000, glowing face symbols #f0f0b8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: focused squinting eyes drawn as \"> <\", glowing in #f0f0b8 on the dark screen.\nChest emblem: none.\nAccessories: a white mechanical keyboard held in front of the body with both hands; a brown tool belt with a gold buckle, a screwdriver and a small wrench.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/software-engineer-2.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/ux-designer-lilac.webp",
+      "preset": "ux-designer",
+      "sha256": "8aa003fed80b1bd1acb8c31543e7a7b4a351f2e6b688fd893d03d23b70745c2e",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset ux-designer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Product Designer (UX)",
+          "palette": {
+            "primary": "#c39bf6",
+            "highlight": "#e8d6ff",
+            "outline": "#3d1f66",
+            "screen": "#120722",
+            "glyph": "#ffd6f2"
+          },
+          "color_name": "lilac",
+          "name": null,
+          "face": "friendly round dot eyes with a small smile",
+          "emblem": "a tiny pink pen-tool bezier curve icon on the chest",
+          "accessories": [
+            "a small paint palette held in its left hand",
+            "a stylus pencil tucked behind the head"
+          ],
+          "preset_id": "ux-designer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Product Designer (UX).\nColor palette (lilac): head and body #c39bf6, highlights #e8d6ff, outlines and shadows #3d1f66, face screen #120722, glowing face symbols #ffd6f2. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: friendly round dot eyes with a small smile, glowing in #ffd6f2 on the dark screen.\nChest emblem: a tiny pink pen-tool bezier curve icon on the chest.\nAccessories: a small paint palette held in its left hand; a stylus pencil tucked behind the head.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/ux-designer-lilac.webp"
           ],
           "size": "1024x1024",
           "quality": "high",

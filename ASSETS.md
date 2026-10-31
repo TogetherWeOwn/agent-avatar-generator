@@ -6,10 +6,13 @@ not cover the images.
 
 ## `examples/*.webp`
 
-- The seven agent avatars used by TWO. They were AI-generated for TWO with an
-  image-generation model and approved by TWO before this tool existed.
-- Each file is stored byte-for-byte as approved (1254x1254, transparent WebP).
-  `manifest.json` records its SHA-256 and the CI checks it.
+- The nine agent avatars used by TWO, all AI-generated for TWO and approved by TWO.
+- `security-engineer-gunmetal.webp` and `ux-designer-lilac.webp` were generated
+  with this tool (`gpt-image-2.5`, from the `security-engineer` and `ux-designer`
+  presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
+- The other seven were made with an image-generation model before this tool
+  existed. They are stored byte-for-byte as approved (1254x1254, transparent WebP).
+- `manifest.json` records each file's SHA-256 and the CI checks it.
 - The `recipe` for each example in `manifest.json` is the preset and prompt this
   tool uses to generate a *new* variant in the same style. It is not a record of
   the exact prompt that produced the original, and generation is

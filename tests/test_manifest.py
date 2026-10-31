@@ -27,7 +27,8 @@ def test_every_example_exists_and_hash_matches():
         assert path.is_file(), entry["file"]
         assert sha256_file(path) == entry["sha256"]
         with Image.open(path) as image:
-            assert (image.width, image.height) == (entry["width"], entry["height"]) == (1254, 1254)
+            assert (image.width, image.height) == (entry["width"], entry["height"])
+            assert image.width == image.height
             assert image.format == "WEBP" and image.mode == "RGBA"
 
 

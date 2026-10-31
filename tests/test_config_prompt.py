@@ -19,12 +19,14 @@ EXPECTED_PRESETS = {
     "devops-engineer",
     "qa-reviewer",
     "product-lead",
+    "security-engineer",
+    "ux-designer",
 }
 
 PALETTE = {"primary": "#112233", "highlight": "#445566", "outline": "#000000", "screen": "#101010", "glyph": "#FFFFFF"}
 
 
-def test_all_seven_presets_load():
+def test_all_presets_load():
     presets = load_presets()
     assert set(presets) == EXPECTED_PRESETS
     for preset_id, spec in presets.items():
@@ -32,7 +34,16 @@ def test_all_seven_presets_load():
         assert spec.role and spec.face and spec.example
 
 
-@pytest.mark.parametrize("preset_id,color", [("devops-engineer", "coral"), ("qa-reviewer", "emerald"), ("product-lead", "magenta")])
+@pytest.mark.parametrize(
+    "preset_id,color",
+    [
+        ("devops-engineer", "coral"),
+        ("qa-reviewer", "emerald"),
+        ("product-lead", "magenta"),
+        ("security-engineer", "gunmetal steel"),
+        ("ux-designer", "lilac"),
+    ],
+)
 def test_named_color_presets(preset_id, color):
     assert get_preset(preset_id).color_name == color
 
