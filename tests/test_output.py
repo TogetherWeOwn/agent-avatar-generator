@@ -175,3 +175,30 @@ def test_overwrite_through_symlink_updates_target(tmp_path):
     with Image.open(real) as saved:
         assert saved.size == (64, 64)
     assert sorted(p.name for p in (tmp_path / "avatars").iterdir()) == ["team.png"]
+
+
+def test_preflight_creates_symlink_target_dir_and_checks_its_format(tmp_path):
+    from agent_avatar_generator.output import prepare_output_dir
+
+    link = tmp_path / "current.png"
+    link.symlink_to(tmp_path / "archive" / "2026" / "avatar.png")
+    prepare_output_dir(link)
+    assert (tmp_path / "archive" / "2026").is_dir()
+    save_image(finalize_image(png_bytes(), 64)[0], link, overwrite=True)
+    with Image.open(tmp_path / "archive" / "2026" / "avatar.png") as saved:
+        assert saved.size == (64, 64)
+    bad = tmp_path / "bad.png"
+    bad.symlink_to(tmp_path / "avatar.jpg")
+    with pytest.raises(OutputError, match="must end in"):
+        prepare_output_dir(bad)
+
+
+def test_overwrite_through_symlink_uses_target_format(tmp_path):
+    image, _ = finalize_image(png_bytes(), 64)
+    real = tmp_path / "archived.webp"
+    real.write_bytes(b"previous avatar")
+    link = tmp_path / "current.png"
+    link.symlink_to(real)
+    save_image(image, link, overwrite=True)
+    with Image.open(real) as saved:
+        assert saved.format == "WEBP"

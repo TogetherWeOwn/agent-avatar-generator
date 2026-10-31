@@ -111,14 +111,16 @@ def finalize_image(data: bytes, size: int) -> tuple[Image.Image, bool]:
 
 def prepare_output_dir(path: Path) -> None:
     """Create the parent directory up front so a bad location fails before any paid API call."""
-    try:
-        path.parent.mkdir(parents=True, exist_ok=True)
-    except OSError as exc:
-        raise OutputError(f"cannot create output directory {path.parent}: {exc}") from exc
-    # An existing symlink is written through, so its target's directory is the one that matters.
-    parent = Path(os.path.realpath(path)).parent
-    if not os.access(parent, os.W_OK):
-        raise OutputError(f"output directory {parent} is not writable")
+    # An existing symlink is written through, so its target's name and directory are what matter.
+    target = Path(os.path.realpath(path))
+    output_format(target)
+    for parent in dict.fromkeys((path.parent, target.parent)):
+        try:
+            parent.mkdir(parents=True, exist_ok=True)
+        except OSError as exc:
+            raise OutputError(f"cannot create output directory {parent}: {exc}") from exc
+    if not os.access(target.parent, os.W_OK):
+        raise OutputError(f"output directory {target.parent} is not writable")
 
 
 def _replacement_mode(path: Path) -> int:
@@ -140,11 +142,12 @@ def save_image(image: Image.Image, path: Path, overwrite: bool = False) -> None:
     keeps the previous file. The swap follows an existing symlink and keeps the
     replaced file's permission bits.
     """
+    if overwrite:
+        path = Path(os.path.realpath(path))
     fmt = output_format(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     options = {"lossless": True, "exact": True} if fmt == "WEBP" else {"optimize": True}
     if overwrite:
-        path = Path(os.path.realpath(path))
         fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
         target, fh = Path(tmp_name), os.fdopen(fd, "wb")
         try:
