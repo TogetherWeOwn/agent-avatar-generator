@@ -18,8 +18,9 @@ EXAMPLES_DIR = "examples"
 STYLE_REFERENCES = ("engineering-lead.webp", "qa-reviewer-emerald.webp")
 
 PROVENANCE = (
-    "The example images are the approved TWO agent avatars. They were AI-generated for TWO "
-    "with an image-generation model before this tool existed; they are stored byte-for-byte as approved. "
+    "The example images are the approved TWO agent avatars. The first seven were AI-generated for TWO "
+    "with an image-generation model before this tool existed; security-engineer and ux-designer were "
+    "generated with this tool (gpt-image-2.5, 512 px). All are stored as approved, pixel for pixel. "
     "Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, "
     "not a record of the exact original prompt. Image generation is non-deterministic."
 )

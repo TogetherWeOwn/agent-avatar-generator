@@ -1,0 +1,14 @@
+id: security-engineer
+role: Security Engineer
+color_name: gunmetal steel
+palette:
+  primary: "#7d8ca3"
+  highlight: "#c3cede"
+  outline: "#1f2734"
+  screen: "#070b12"
+  glyph: "#7cf0ff"
+face: calm watchful eyes drawn as two short horizontal bars (- -)
+emblem: a small cyan shield with a keyhole on the chest
+accessories:
+  - a chunky golden padlock held in its right hand
+example: security-engineer-gunmetal.webp

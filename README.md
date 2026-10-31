@@ -11,7 +11,8 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the seven original avatars, stored byte-for-byte in [`examples/`](examples).
+These are the nine approved TWO avatars in [`examples/`](examples). The first seven
+are the originals. Security Engineer and UX Designer were made with this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
@@ -23,6 +24,11 @@ See [Asset provenance](#asset-provenance).
 | :---: | :---: | :---: |
 | <img src="examples/devops-engineer-coral.webp" width="160" alt="DevOps Engineer avatar"> | <img src="examples/qa-reviewer-emerald.webp" width="160" alt="QA Reviewer avatar"> | <img src="examples/product-lead-magenta.webp" width="160" alt="Product Lead avatar"> |
 | `devops-engineer` | `qa-reviewer` | `product-lead` |
+
+| Security Engineer (gunmetal) | UX Designer (lilac) |
+| :---: | :---: |
+| <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> |
+| `security-engineer` | `ux-designer` |
 
 ## Install
 
@@ -52,6 +58,21 @@ export OPENAI_API_KEY=...        # your own key
 
 `--dry-run`, `presets`, `manifest` and the tests do not need a key and make no
 network calls.
+
+### OpenAI-compatible endpoints
+
+The client is the official `openai` SDK, so it also reads `OPENAI_BASE_URL`. To
+generate through an OpenAI-compatible proxy, point both variables at it and pass
+a model that the proxy serves:
+
+```bash
+export OPENAI_BASE_URL=https://your-proxy.example/v1
+export OPENAI_API_KEY=...        # the proxy's key
+agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
+```
+
+The `security-engineer` and `ux-designer` examples were made this way, with
+`gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
 
@@ -118,7 +139,9 @@ You can also run it as `python -m agent_avatar_generator ...`.
 ## Presets
 
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
-Their palettes and accessories were inferred by inspecting the example images.
+For the seven original presets, palettes and accessories were inferred by
+inspecting the example images. The `security-engineer` and `ux-designer` presets
+are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -131,6 +154,8 @@ The prompt template is
 | `devops-engineer` | coral `#f85053` | winking `>_` face, server-rack backpack with rocket sticker |
 | `qa-reviewer` | emerald `#28e179` | happy eyes, magnifying glass, checkmark emblem |
 | `product-lead` | magenta `#fb5dba` | winking `>_` face, roadmap clipboard, lightbulb emblem |
+| `security-engineer` | gunmetal steel `#7d8ca3` | `- -` watchful eyes, gold padlock, cyan shield-and-keyhole emblem |
+| `ux-designer` | lilac `#c39bf6` | dot eyes and smile, paint palette, stylus, pen-tool emblem |
 
 ## Manifest
 
@@ -170,8 +195,8 @@ along with `agent-avatar manifest` and a dry run.
 
 ## Asset provenance
 
-The example avatars were AI-generated for TWO and are included as approved,
-byte-for-byte. The `recipe` entries describe how this tool makes a new variant
+The example avatars were AI-generated for TWO and are included as approved.
+The `recipe` entries describe how this tool makes a new variant
 in the same style; they are not the exact original prompts. This project is not
 affiliated with or endorsed by OpenAI. See [ASSETS.md](ASSETS.md) for details.
 
