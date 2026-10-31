@@ -146,3 +146,32 @@ def test_failed_save_keeps_existing_and_leaves_no_partial(tmp_path, monkeypatch,
     else:
         assert not path.exists()
     assert [p.name for p in tmp_path.iterdir()] == (["a.png"] if overwrite else [])
+
+
+@pytest.mark.parametrize("existing_mode", [0o644, 0o640, None])
+def test_overwrite_keeps_file_mode(tmp_path, existing_mode):
+    image, _ = finalize_image(png_bytes(), 64)
+    path = tmp_path / "a.png"
+    if existing_mode is None:
+        save_image(image, tmp_path / "plain.png")
+        expected = (tmp_path / "plain.png").stat().st_mode & 0o777
+    else:
+        path.write_bytes(b"previous avatar")
+        path.chmod(existing_mode)
+        expected = existing_mode
+    save_image(image, path, overwrite=True)
+    assert path.stat().st_mode & 0o777 == expected
+
+
+def test_overwrite_through_symlink_updates_target(tmp_path):
+    image, _ = finalize_image(png_bytes(), 64)
+    (tmp_path / "avatars").mkdir()
+    real = tmp_path / "avatars" / "team.png"
+    real.write_bytes(b"previous avatar")
+    link = tmp_path / "current.png"
+    link.symlink_to(real)
+    save_image(image, link, overwrite=True)
+    assert link.is_symlink()
+    with Image.open(real) as saved:
+        assert saved.size == (64, 64)
+    assert sorted(p.name for p in (tmp_path / "avatars").iterdir()) == ["team.png"]

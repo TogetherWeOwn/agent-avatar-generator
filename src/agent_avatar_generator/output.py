@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 import os
 import re
+import stat
 import tempfile
 import unicodedata
 from pathlib import Path
@@ -114,8 +115,20 @@ def prepare_output_dir(path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
     except OSError as exc:
         raise OutputError(f"cannot create output directory {path.parent}: {exc}") from exc
-    if not os.access(path.parent, os.W_OK):
-        raise OutputError(f"output directory {path.parent} is not writable")
+    # An existing symlink is written through, so its target's directory is the one that matters.
+    parent = Path(os.path.realpath(path)).parent
+    if not os.access(parent, os.W_OK):
+        raise OutputError(f"output directory {parent} is not writable")
+
+
+def _replacement_mode(path: Path) -> int:
+    """Permission bits for a file swapped in at ``path``: the old file's, else a normal create's."""
+    try:
+        return stat.S_IMODE(path.stat().st_mode)
+    except FileNotFoundError:
+        umask = os.umask(0)
+        os.umask(umask)
+        return 0o666 & ~umask
 
 
 def save_image(image: Image.Image, path: Path, overwrite: bool = False) -> None:
@@ -124,14 +137,22 @@ def save_image(image: Image.Image, path: Path, overwrite: bool = False) -> None:
     Without ``overwrite`` the file is created exclusively, so a file that appeared
     since the early existence check is never replaced. With ``overwrite`` the image
     is written to a temporary file and atomically swapped in, so a failed save
-    keeps the previous file.
+    keeps the previous file. The swap follows an existing symlink and keeps the
+    replaced file's permission bits.
     """
     fmt = output_format(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     options = {"lossless": True, "exact": True} if fmt == "WEBP" else {"optimize": True}
     if overwrite:
+        path = Path(os.path.realpath(path))
         fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
         target, fh = Path(tmp_name), os.fdopen(fd, "wb")
+        try:
+            os.fchmod(fd, _replacement_mode(path))
+        except BaseException:
+            fh.close()
+            target.unlink(missing_ok=True)
+            raise
     else:
         try:
             target, fh = path, open(path, "xb")
