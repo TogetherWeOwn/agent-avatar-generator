@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -12,7 +14,16 @@ from . import __version__
 from .backend import DEFAULT_MODEL, FIDELITIES, QUALITIES, BackendError, ImageRequest, generate
 from .config import PALETTE_KEYS, AvatarSpec, Palette, ConfigError, apply_overrides, get_preset, load_presets, load_spec_file
 from .manifest import check_manifest, default_references, write_manifest
-from .output import MAX_SIZE, MIN_SIZE, OutputError, finalize_image, resolve_output_path, save_image, validate_size
+from .output import (
+    MAX_SIZE,
+    MIN_SIZE,
+    OutputError,
+    finalize_image,
+    prepare_output_dir,
+    resolve_output_path,
+    save_image,
+    validate_size,
+)
 from .prompt import build_prompt
 
 DEFAULT_SIZE = 1024
@@ -101,8 +112,17 @@ def _generate(args: argparse.Namespace, client: Any | None) -> int:
         print(json.dumps({"request": request.to_dict(), "output": str(path), "output_size": args.size}, indent=2))
         return 0
     path = resolve_output_path(args.output, args.out_dir, stem, args.format, overwrite=args.overwrite)
-    image, transparent = finalize_image(generate(request, client=client), args.size)
-    save_image(image, path)
+    prepare_output_dir(path)
+    data = generate(request, client=client)
+    try:
+        image, transparent = finalize_image(data, args.size)
+        save_image(image, path, overwrite=args.overwrite)
+    except (OutputError, OSError) as exc:
+        # The API call is already paid for; keep the raw result instead of losing it.
+        fd, rescue = tempfile.mkstemp(prefix="agent-avatar-", suffix=".png")
+        with os.fdopen(fd, "wb") as fh:
+            fh.write(data)
+        raise OutputError(f"{exc}; raw image saved to {rescue}") from exc
     print(path)
     if not transparent:
         print("warning: the generated image has no transparent pixels; check the background", file=sys.stderr)
@@ -128,7 +148,7 @@ def main(argv: Sequence[str] | None = None, client: Any | None = None) -> int:
             if not problems:
                 print("manifest OK")
             return 1 if problems else 0
-    except (ConfigError, OutputError, BackendError) as exc:
+    except (ConfigError, OutputError, BackendError, OSError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     return 1

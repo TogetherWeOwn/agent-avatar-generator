@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 from PIL import Image
@@ -127,3 +128,46 @@ def test_default_client_never_built_in_dry_run(repo_root, capsys, monkeypatch):
 def test_presets_command(capsys):
     assert main(["presets"]) == 0
     assert "devops-engineer" in capsys.readouterr().out
+
+
+class ExplodingImages:
+    calls = []
+
+    def edit(self, **kwargs):
+        raise RuntimeError("rate limited")
+
+
+def test_sdk_errors_become_clean_errors(repo_root, tmp_path, capsys):
+    client = FakeClient()
+    client.images = ExplodingImages()
+    assert main(["generate", "--preset", "qa-reviewer", "-o", str(tmp_path / "a.png")], client=client) == 2
+    assert "image API request failed: rate limited" in capsys.readouterr().err
+
+
+def test_missing_config_file(repo_root, capsys):
+    assert main(["generate", "--config", "nope.yaml", "--dry-run"]) == 2
+    assert "cannot read" in capsys.readouterr().err
+
+
+def test_unusable_out_dir_fails_before_api_call(repo_root, tmp_path, capsys):
+    client = FakeClient()
+    blocker = tmp_path / "file"
+    blocker.write_text("x")
+    assert main(["generate", "--preset", "qa-reviewer", "--out-dir", str(blocker)], client=client) == 2
+    assert client.images.calls == []
+    assert "error:" in capsys.readouterr().err
+
+
+def test_save_failure_keeps_paid_image(repo_root, tmp_path, capsys, monkeypatch):
+    from agent_avatar_generator import cli
+
+    def broken(*args, **kwargs):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(cli, "save_image", broken)
+    assert main(["generate", "--preset", "qa-reviewer", "-o", str(tmp_path / "a.png")], client=FakeClient()) == 2
+    err = capsys.readouterr().err
+    assert "disk full" in err
+    rescued = Path(err.split("raw image saved to ")[1].split()[0])
+    assert rescued.read_bytes() == png_bytes()
+    rescued.unlink()

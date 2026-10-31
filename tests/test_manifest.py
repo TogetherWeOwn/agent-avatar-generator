@@ -66,3 +66,9 @@ def test_check_detects_stale_manifest(tmp_path):
     data["examples"][0]["recipe"]["parameters"]["face"] = "edited by hand"
     (tmp_path / "manifest.json").write_text(json.dumps(data))
     assert check_manifest(tmp_path) == ["manifest.json is out of date; run: agent-avatar manifest --write"]
+
+
+def test_check_reports_invalid_json(tmp_path):
+    (tmp_path / "manifest.json").write_text('{"examples": [],}')
+    (problem,) = check_manifest(tmp_path)
+    assert problem.startswith("manifest.json is not valid JSON")

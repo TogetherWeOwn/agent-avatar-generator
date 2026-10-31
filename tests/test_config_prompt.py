@@ -44,7 +44,7 @@ def test_unknown_preset_lists_choices():
 
 def test_palette_normalizes_and_validates():
     assert Palette.from_dict(PALETTE).glyph == "#ffffff"
-    for bad in ("red", "#fff", "#gggggg", "112233", None):
+    for bad in ("red", "#fff", "#gggggg", "112233", None, "#112233\n"):
         with pytest.raises(ConfigError):
             Palette.from_dict({**PALETTE, "primary": bad})
     with pytest.raises(ConfigError, match="missing"):
@@ -63,6 +63,12 @@ def test_palette_normalizes_and_validates():
         {"role": "X", "palette": PALETTE, "accessories": [""]},
         {"role": "X", "palette": PALETTE, "id": "../evil"},
         {"role": "X", "palette": PALETTE, "colour": "typo"},
+        {"role": "X", "palette": PALETTE, "id": "foo\n"},
+        {"role": "X", "palette": PALETTE, "accessories": None},
+        {"role": "X", "palette": PALETTE, "accessories": False},
+        {"role": "X", "palette": PALETTE, "example": "../../private.png"},
+        {"role": "X", "palette": PALETTE, "example": "sub/dir.webp"},
+        {"role": "X", "palette": PALETTE, "example": ".."},
     ],
 )
 def test_invalid_specs_rejected(data):
@@ -83,6 +89,14 @@ def test_load_spec_file(tmp_path):
     path.write_text("role: [unclosed")
     with pytest.raises(ConfigError, match="invalid YAML"):
         load_spec_file(path)
+
+
+def test_unreadable_spec_file_is_config_error(tmp_path):
+    bad = tmp_path / "latin1.yaml"
+    bad.write_bytes(b"role: caf\xe9")
+    for path in (tmp_path / "missing.yaml", tmp_path, bad):
+        with pytest.raises(ConfigError, match="cannot read"):
+            load_spec_file(path)
 
 
 def test_overrides():

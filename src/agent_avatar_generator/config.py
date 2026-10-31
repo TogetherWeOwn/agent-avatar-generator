@@ -10,9 +10,9 @@ from typing import Any
 
 import yaml
 
-HEX_COLOR = re.compile(r"^#[0-9a-fA-F]{6}$")
+HEX_COLOR = re.compile(r"^#[0-9a-fA-F]{6}\Z")
 PALETTE_KEYS = ("primary", "highlight", "outline", "screen", "glyph")
-PRESET_ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+PRESET_ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
 
 class ConfigError(ValueError):
@@ -82,12 +82,15 @@ def spec_from_dict(data: dict[str, Any], source: str = "preset") -> AvatarSpec:
     role = data.get("role")
     if not isinstance(role, str) or not role.strip():
         raise ConfigError(f"{source}: role is required")
-    accessories = data.get("accessories") or []
+    accessories = data.get("accessories", [])
     if not isinstance(accessories, list) or not all(isinstance(a, str) and a.strip() for a in accessories):
         raise ConfigError(f"{source}: accessories must be a list of non-empty strings")
     for key in ("color_name", "face", "emblem", "example", "name"):
         if key in data and not isinstance(data[key], str):
             raise ConfigError(f"{source}: {key} must be a string")
+    example = data.get("example")
+    if example is not None and (example in ("", ".", "..") or Path(example).name != example or "\\" in example):
+        raise ConfigError(f"{source}: example must be a plain filename inside the examples directory")
     optional = {k: data[k] for k in ("color_name", "face", "emblem", "name", "example") if k in data}
     return AvatarSpec(
         role=role.strip(),
@@ -103,6 +106,8 @@ def load_spec_file(path: Path) -> AvatarSpec:
         data = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
     except yaml.YAMLError as exc:
         raise ConfigError(f"{path}: invalid YAML: {exc}") from exc
+    except (OSError, UnicodeDecodeError) as exc:
+        raise ConfigError(f"{path}: cannot read config: {exc}") from exc
     return spec_from_dict(data, source=str(path))
 
 

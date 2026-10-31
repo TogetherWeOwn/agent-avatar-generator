@@ -67,17 +67,20 @@ def generate(request: ImageRequest, client: Any | None = None) -> bytes:
     client = client if client is not None else default_client()
     with ExitStack() as stack:
         images = [stack.enter_context(open(r, "rb")) for r in request.references]
-        response = client.images.edit(
-            model=request.model,
-            image=images,
-            prompt=request.prompt,
-            size=request.size,
-            quality=request.quality,
-            background=request.background,
-            output_format=request.output_format,
-            input_fidelity=request.input_fidelity,
-            n=request.n,
-        )
+        try:
+            response = client.images.edit(
+                model=request.model,
+                image=images,
+                prompt=request.prompt,
+                size=request.size,
+                quality=request.quality,
+                background=request.background,
+                output_format=request.output_format,
+                input_fidelity=request.input_fidelity,
+                n=request.n,
+            )
+        except Exception as exc:  # the SDK is optional, so its exception types may not be importable
+            raise BackendError(f"image API request failed: {exc}") from exc
     data = getattr(response, "data", None) or []
     b64 = getattr(data[0], "b64_json", None) if data else None
     if not b64:

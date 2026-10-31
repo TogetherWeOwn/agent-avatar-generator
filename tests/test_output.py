@@ -30,7 +30,10 @@ from .conftest import png_bytes
         ("", "avatar"),
         (None, "avatar"),
         ("a" * 200, "a" * 64),
-        ("con:*?<>|", "con"),
+        ("con:*?<>|", "con-avatar"),
+        ("Nul", "nul-avatar"),
+        ("COM1", "com1-avatar"),
+        ("console", "console"),
     ],
 )
 def test_safe_stem(text, expected):
@@ -111,3 +114,15 @@ def test_save_round_trip_preserves_transparency(tmp_path, name):
         assert saved.size == (64, 64)
         assert has_transparency(saved)
         assert saved.convert("RGBA").tobytes() == image.tobytes()  # lossless
+
+
+def test_save_never_clobbers_without_overwrite(tmp_path):
+    image, _ = finalize_image(png_bytes(), 64)
+    path = tmp_path / "a.png"
+    path.write_bytes(b"other worker")
+    with pytest.raises(OutputError, match="already exists"):
+        save_image(image, path)
+    assert path.read_bytes() == b"other worker"
+    save_image(image, path, overwrite=True)
+    with Image.open(path) as saved:
+        assert saved.size == (64, 64)

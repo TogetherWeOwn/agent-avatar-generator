@@ -93,7 +93,10 @@ def check_manifest(root: Path) -> list[str]:
     if not path.is_file():
         return [f"{MANIFEST_NAME} is missing"]
     problems = []
-    on_disk = json.loads(path.read_text(encoding="utf-8"))
+    try:
+        on_disk = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return [f"{MANIFEST_NAME} is not valid JSON: {exc}"]
     for entry in on_disk.get("examples", []):
         file = root / entry["file"]
         if not file.is_file():

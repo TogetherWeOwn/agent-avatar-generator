@@ -109,6 +109,9 @@ You can also run it as `python -m agent_avatar_generator ...`.
 - If the model returns an image with no transparent pixels, the file is still
   saved and a warning is printed, so you are not charged twice for a retry you
   did not want.
+- The output directory is created and checked before the API call, and the file
+  is created exclusively unless you pass `--overwrite`. If saving still fails
+  after a paid call, the raw image is kept in a temporary file and its path is printed.
 - Derived filenames are reduced to `[a-z0-9-]`, so `--name "../../x"` becomes
   `out/x.png`. An explicit `-o` path is used as given; only its extension is checked.
 

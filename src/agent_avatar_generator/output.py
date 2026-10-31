@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import io
+import os
 import re
 import unicodedata
 from pathlib import Path
@@ -13,6 +14,8 @@ MIN_SIZE = 32
 MAX_SIZE = 2048
 FORMATS = {".png": "PNG", ".webp": "WEBP"}
 _MAX_STEM = 64
+# Device names that Windows reserves even with an extension.
+_WINDOWS_RESERVED = {"con", "prn", "aux", "nul", *(f"com{i}" for i in range(1, 10)), *(f"lpt{i}" for i in range(1, 10))}
 
 
 class OutputError(ValueError):
@@ -25,8 +28,8 @@ def safe_stem(text: str | None, fallback: str = "avatar") -> str:
         return fallback
     ascii_text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
     stem = re.sub(r"[^a-z0-9]+", "-", ascii_text.lower()).strip("-")
-    stem = stem[:_MAX_STEM].rstrip("-")
-    return stem or fallback
+    stem = stem[:_MAX_STEM].rstrip("-") or fallback
+    return f"{stem}-avatar" if stem in _WINDOWS_RESERVED else stem
 
 
 def validate_size(size: int) -> int:
@@ -104,10 +107,29 @@ def finalize_image(data: bytes, size: int) -> tuple[Image.Image, bool]:
     return image, transparent
 
 
-def save_image(image: Image.Image, path: Path) -> None:
+def prepare_output_dir(path: Path) -> None:
+    """Create the parent directory up front so a bad location fails before any paid API call."""
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise OutputError(f"cannot create output directory {path.parent}: {exc}") from exc
+    if not os.access(path.parent, os.W_OK):
+        raise OutputError(f"output directory {path.parent} is not writable")
+
+
+def save_image(image: Image.Image, path: Path, overwrite: bool = False) -> None:
+    """Write PNG or lossless WebP. Without ``overwrite`` the file is created exclusively,
+    so a file that appeared since the early existence check is never replaced."""
     fmt = output_format(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    if fmt == "WEBP":
-        image.save(path, "WEBP", lossless=True, exact=True)
-    else:
-        image.save(path, "PNG", optimize=True)
+    options = {"lossless": True, "exact": True} if fmt == "WEBP" else {"optimize": True}
+    try:
+        fh = open(path, "wb" if overwrite else "xb")
+    except FileExistsError as exc:
+        raise OutputError(f"{path} already exists (use --overwrite to replace it)") from exc
+    try:
+        with fh:
+            image.save(fh, fmt, **options)
+    except BaseException:
+        path.unlink(missing_ok=True)
+        raise
