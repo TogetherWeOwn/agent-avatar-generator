@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 import os
 import re
+import tempfile
 import unicodedata
 from pathlib import Path
 
@@ -118,18 +119,29 @@ def prepare_output_dir(path: Path) -> None:
 
 
 def save_image(image: Image.Image, path: Path, overwrite: bool = False) -> None:
-    """Write PNG or lossless WebP. Without ``overwrite`` the file is created exclusively,
-    so a file that appeared since the early existence check is never replaced."""
+    """Write PNG or lossless WebP without ever leaving a partial or clobbered file.
+
+    Without ``overwrite`` the file is created exclusively, so a file that appeared
+    since the early existence check is never replaced. With ``overwrite`` the image
+    is written to a temporary file and atomically swapped in, so a failed save
+    keeps the previous file.
+    """
     fmt = output_format(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     options = {"lossless": True, "exact": True} if fmt == "WEBP" else {"optimize": True}
-    try:
-        fh = open(path, "wb" if overwrite else "xb")
-    except FileExistsError as exc:
-        raise OutputError(f"{path} already exists (use --overwrite to replace it)") from exc
+    if overwrite:
+        fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
+        target, fh = Path(tmp_name), os.fdopen(fd, "wb")
+    else:
+        try:
+            target, fh = path, open(path, "xb")
+        except FileExistsError as exc:
+            raise OutputError(f"{path} already exists (use --overwrite to replace it)") from exc
     try:
         with fh:
             image.save(fh, fmt, **options)
+        if overwrite:
+            os.replace(target, path)
     except BaseException:
-        path.unlink(missing_ok=True)
+        target.unlink(missing_ok=True)
         raise

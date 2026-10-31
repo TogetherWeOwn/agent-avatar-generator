@@ -126,3 +126,23 @@ def test_save_never_clobbers_without_overwrite(tmp_path):
     save_image(image, path, overwrite=True)
     with Image.open(path) as saved:
         assert saved.size == (64, 64)
+
+
+@pytest.mark.parametrize("overwrite", [True, False])
+def test_failed_save_keeps_existing_and_leaves_no_partial(tmp_path, monkeypatch, overwrite):
+    image, _ = finalize_image(png_bytes(), 64)
+
+    def boom(*args, **kwargs):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(image, "save", boom)
+    path = tmp_path / "a.png"
+    if overwrite:
+        path.write_bytes(b"previous avatar")
+    with pytest.raises(OSError, match="disk full"):
+        save_image(image, path, overwrite=overwrite)
+    if overwrite:
+        assert path.read_bytes() == b"previous avatar"
+    else:
+        assert not path.exists()
+    assert [p.name for p in tmp_path.iterdir()] == (["a.png"] if overwrite else [])
