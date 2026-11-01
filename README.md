@@ -11,9 +11,9 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the ten approved TWO avatars in [`examples/`](examples). The first seven
-are the originals. Security Engineer, UX Designer and Applied Cryptography Reviewer
-were made with this tool.
+These are the eleven approved TWO avatars in [`examples/`](examples). The first seven
+are the originals. Security Engineer, UX Designer, Applied Cryptography Reviewer
+and Release Manager were made with this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
@@ -26,10 +26,10 @@ See [Asset provenance](#asset-provenance).
 | <img src="examples/devops-engineer-coral.webp" width="160" alt="DevOps Engineer avatar"> | <img src="examples/qa-reviewer-emerald.webp" width="160" alt="QA Reviewer avatar"> | <img src="examples/product-lead-magenta.webp" width="160" alt="Product Lead avatar"> |
 | `devops-engineer` | `qa-reviewer` | `product-lead` |
 
-| Security Engineer (gunmetal) | UX Designer (lilac) | Applied Cryptography Reviewer (sky blue) |
-| :---: | :---: | :---: |
-| <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> | <img src="examples/applied-cryptography-reviewer-sky.webp" width="160" alt="Applied Cryptography Reviewer avatar"> |
-| `security-engineer` | `ux-designer` | `applied-cryptography-reviewer` |
+| Security Engineer (gunmetal) | UX Designer (lilac) | Applied Cryptography Reviewer (sky blue) | Release Manager (royal navy) |
+| :---: | :---: | :---: | :---: |
+| <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> | <img src="examples/applied-cryptography-reviewer-sky.webp" width="160" alt="Applied Cryptography Reviewer avatar"> | <img src="examples/release-manager-navy.webp" width="160" alt="Release Manager avatar"> |
+| `security-engineer` | `ux-designer` | `applied-cryptography-reviewer` | `release-manager` |
 
 ## Install
 
@@ -72,7 +72,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer` and `applied-cryptography-reviewer` examples were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer` and `release-manager` examples were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -141,8 +141,8 @@ You can also run it as `python -m agent_avatar_generator ...`.
 
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
-inspecting the example images. The `security-engineer`, `ux-designer` and
-`applied-cryptography-reviewer` presets are the specs their examples were generated from.
+inspecting the example images. The `security-engineer`, `ux-designer`,
+`applied-cryptography-reviewer` and `release-manager` presets are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -158,6 +158,7 @@ The prompt template is
 | `security-engineer` | gunmetal steel `#7d8ca3` | `- -` watchful eyes, gold padlock, cyan shield-and-keyhole emblem |
 | `ux-designer` | lilac `#c39bf6` | dot eyes and smile, paint palette, stylus, pen-tool emblem |
 | `applied-cryptography-reviewer` | sky blue `#46b3f0` | focused square eyes, gold monocle, hex ciphertext scroll, gold key emblem |
+| `release-manager` | royal navy `#3457d5` | star eyes and confident smile, white-and-gold rocket, shipping box, gold version-tag emblem |
 
 ## Manifest
 
