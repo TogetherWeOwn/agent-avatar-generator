@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer and applied-cryptography-reviewer examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer and release-manager examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -259,6 +259,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: QA Reviewer.\nColor palette (emerald): head and body #28e179, highlights #85f78d, outlines and shadows #054830, face screen #00160c, glowing face symbols #b0f098. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: happy closed eyes drawn as two upward chevrons (^ ^), glowing in #b0f098 on the dark screen.\nChest emblem: a light green checkmark on the chest.\nAccessories: a magnifying glass with a mint lens held up in its right hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/qa-reviewer-emerald.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/release-manager-navy.webp",
+      "preset": "release-manager",
+      "sha256": "22c3809e55710da22d129a9e20f4f04c32e5ae09bd2af205de535aec4b1f84da",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset release-manager",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Release Manager",
+          "palette": {
+            "primary": "#3457d5",
+            "highlight": "#93aef5",
+            "outline": "#14215c",
+            "screen": "#060d2e",
+            "glyph": "#ffdf6b"
+          },
+          "color_name": "royal navy",
+          "name": null,
+          "face": "proud eyes drawn as two small four-pointed stars with a small confident smile",
+          "emblem": "a small golden version tag icon on the chest",
+          "accessories": [
+            "a small white-and-gold rocket held up in its right hand",
+            "a tiny sealed cardboard shipping box held in its left hand"
+          ],
+          "preset_id": "release-manager"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Release Manager.\nColor palette (royal navy): head and body #3457d5, highlights #93aef5, outlines and shadows #14215c, face screen #060d2e, glowing face symbols #ffdf6b. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: proud eyes drawn as two small four-pointed stars with a small confident smile, glowing in #ffdf6b on the dark screen.\nChest emblem: a small golden version tag icon on the chest.\nAccessories: a small white-and-gold rocket held up in its right hand; a tiny sealed cardboard shipping box held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/release-manager-navy.webp"
           ],
           "size": "1024x1024",
           "quality": "high",

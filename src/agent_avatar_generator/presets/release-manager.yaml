@@ -1,0 +1,15 @@
+id: release-manager
+role: Release Manager
+color_name: royal navy
+palette:
+  primary: "#3457d5"
+  highlight: "#93aef5"
+  outline: "#14215c"
+  screen: "#060d2e"
+  glyph: "#ffdf6b"
+face: proud eyes drawn as two small four-pointed stars with a small confident smile
+emblem: a small golden version tag icon on the chest
+accessories:
+  - a small white-and-gold rocket held up in its right hand
+  - a tiny sealed cardboard shipping box held in its left hand
+example: release-manager-navy.webp
