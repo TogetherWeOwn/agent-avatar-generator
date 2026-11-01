@@ -1,8 +1,53 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer and ux-designer examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer and applied-cryptography-reviewer examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
+    {
+      "file": "examples/applied-cryptography-reviewer-sky.webp",
+      "preset": "applied-cryptography-reviewer",
+      "sha256": "4e116010d5052f2f702bc9c0df446ad7596d3a480c3382fdc11cf50a85c703ac",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset applied-cryptography-reviewer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Applied Cryptography Reviewer",
+          "palette": {
+            "primary": "#46b3f0",
+            "highlight": "#b3e3ff",
+            "outline": "#0f3355",
+            "screen": "#04101c",
+            "glyph": "#ffd84d"
+          },
+          "color_name": "sky blue",
+          "name": null,
+          "face": "focused square eyes, one slightly narrowed in concentration",
+          "emblem": "a small golden key icon on the chest",
+          "accessories": [
+            "a round golden monocle over its right eye",
+            "a small scroll of hexadecimal ciphertext held in its left hand"
+          ],
+          "preset_id": "applied-cryptography-reviewer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Applied Cryptography Reviewer.\nColor palette (sky blue): head and body #46b3f0, highlights #b3e3ff, outlines and shadows #0f3355, face screen #04101c, glowing face symbols #ffd84d. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: focused square eyes, one slightly narrowed in concentration, glowing in #ffd84d on the dark screen.\nChest emblem: a small golden key icon on the chest.\nAccessories: a round golden monocle over its right eye; a small scroll of hexadecimal ciphertext held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/applied-cryptography-reviewer-sky.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
     {
       "file": "examples/chief-of-staff.webp",
       "preset": "chief-of-staff",
