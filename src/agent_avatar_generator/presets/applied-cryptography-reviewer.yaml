@@ -1,0 +1,15 @@
+id: applied-cryptography-reviewer
+role: Applied Cryptography Reviewer
+color_name: sky blue
+palette:
+  primary: "#46b3f0"
+  highlight: "#b3e3ff"
+  outline: "#0f3355"
+  screen: "#04101c"
+  glyph: "#ffd84d"
+face: focused square eyes, one slightly narrowed in concentration
+emblem: a small golden key icon on the chest
+accessories:
+  - a round golden monocle over its right eye
+  - a small scroll of hexadecimal ciphertext held in its left hand
+example: applied-cryptography-reviewer-sky.webp
