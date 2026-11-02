@@ -1,0 +1,14 @@
+id: seat-meta
+role: AI Board Council Seat, a serene muse among equal peers
+color_name: forest green
+palette:
+  primary: "#2c7547"
+  highlight: "#6fbf86"
+  outline: "#0b2616"
+  screen: "#04100a"
+  glyph: "#f7e08a"
+face: serene half-closed eyes drawn as two short downward arcs with a soft smile
+emblem: a small golden lyre
+accessories:
+  - a small sprig of green laurel leaves tucked behind the head
+example: seat-meta-forest.webp

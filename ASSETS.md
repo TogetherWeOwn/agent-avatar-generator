@@ -6,13 +6,21 @@ not cover the images.
 
 ## `examples/*.webp`
 
-- The twelve avatars used by TWO (eleven agents plus the Paperclip Operator
-  board account), all AI-generated for TWO and approved by TWO.
+- The nineteen avatars used by TWO (eleven agents, the Paperclip Operator
+  board account and the seven council avatars), all AI-generated for TWO and approved by TWO.
 - `security-engineer-gunmetal.webp`, `ux-designer-lilac.webp`,
   `applied-cryptography-reviewer-sky.webp`, `release-manager-navy.webp` and
   `paperclip-operator-steel.webp` were generated with this tool (`gpt-image-2.5`,
   from the `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`,
   `release-manager` and `paperclip-operator` presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
+- The seven council avatars (`board-secretary-pearl.webp`,
+  `seat-anthropic-terracotta.webp`, `seat-openai-lime.webp`,
+  `seat-google-plum.webp`, `seat-meta-forest.webp`,
+  `seat-moonshot-charcoal.webp` and `seat-xai-ruby.webp`) were generated with
+  this tool on 2026-11-02 (`gpt-image-2.5` through an OpenAI-compatible proxy,
+  from the `board-secretary` and `seat-*` presets). The approved 512x512 PNGs are
+  stored as lossless WebP, pixel for pixel. Emblems are generic symbols; none
+  copies a company logo.
 - The other seven were made with an image-generation model before this tool
   existed. They are stored byte-for-byte as approved (1254x1254, transparent WebP).
 - `manifest.json` records each file's SHA-256 and the CI checks it.

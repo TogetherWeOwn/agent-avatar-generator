@@ -1,0 +1,14 @@
+id: seat-moonshot
+role: AI Board Council Seat, a night-sky observer among equal peers
+color_name: charcoal
+palette:
+  primary: "#3e4350"
+  highlight: "#8a92a6"
+  outline: "#0b0d12"
+  screen: "#020305"
+  glyph: "#fff4b8"
+face: two wide round eyes, each with a tiny star-glint highlight
+emblem: a small pale-yellow crescent moon
+accessories:
+  - a small brass telescope held in its left hand, pointed upward
+example: seat-moonshot-charcoal.webp
