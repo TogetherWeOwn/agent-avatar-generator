@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager and paperclip-operator examples, and the seven council examples (board-secretary and the seat-* presets), were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager, ledger-writer and paperclip-operator examples, and the seven council examples (board-secretary and the seat-* presets), were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -216,6 +216,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Engineering Lead.\nColor palette (violet): head and body #673bef, highlights #9d81f8, outlines and shadows #22125c, face screen #160036, glowing face symbols #c0f0e0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a terminal prompt \">_\" in place of eyes, glowing in #c0f0e0 on the dark screen.\nChest emblem: a small mint org-chart / hierarchy icon on the chest.\nAccessories: three thin antennae on top of the head, each ending in a glowing mint bulb.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/engineering-lead.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/ledger-writer-parchment.webp",
+      "preset": "ledger-writer",
+      "sha256": "606e30e919cd5efa452ff47d808206cfe014939cea78d2af871fc962e4f8b5ec",
+      "width": 1024,
+      "height": 1024,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset ledger-writer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Ledger Writer, a slow and careful scribe who writes the daily plain-language record of what shipped",
+          "palette": {
+            "primary": "#c9a66b",
+            "highlight": "#ecd9b0",
+            "outline": "#3d2f1c",
+            "screen": "#16120c",
+            "glyph": "#ffd27a"
+          },
+          "color_name": "parchment tan",
+          "name": null,
+          "face": "two patient half-lidded oval eyes above a small content curved mouth",
+          "emblem": "an open ledger book with neat ruled lines and a check mark",
+          "accessories": [
+            "a fountain pen held in its right hand",
+            "a small hourglass held in its left hand"
+          ],
+          "preset_id": "ledger-writer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Ledger Writer, a slow and careful scribe who writes the daily plain-language record of what shipped.\nColor palette (parchment tan): head and body #c9a66b, highlights #ecd9b0, outlines and shadows #3d2f1c, face screen #16120c, glowing face symbols #ffd27a. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two patient half-lidded oval eyes above a small content curved mouth, glowing in #ffd27a on the dark screen.\nChest emblem: an open ledger book with neat ruled lines and a check mark.\nAccessories: a fountain pen held in its right hand; a small hourglass held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/ledger-writer-parchment.webp"
           ],
           "size": "1024x1024",
           "quality": "high",

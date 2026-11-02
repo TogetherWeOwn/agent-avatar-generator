@@ -23,6 +23,7 @@ EXPECTED_PRESETS = {
     "ux-designer",
     "applied-cryptography-reviewer",
     "release-manager",
+    "ledger-writer",
     "paperclip-operator",
     "board-secretary",
     "seat-anthropic",

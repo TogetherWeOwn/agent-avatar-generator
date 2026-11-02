@@ -1,0 +1,15 @@
+id: ledger-writer
+role: Ledger Writer, a slow and careful scribe who writes the daily plain-language record of what shipped
+color_name: parchment tan
+palette:
+  primary: "#c9a66b"
+  highlight: "#ecd9b0"
+  outline: "#3d2f1c"
+  screen: "#16120c"
+  glyph: "#ffd27a"
+face: two patient half-lidded oval eyes above a small content curved mouth
+emblem: an open ledger book with neat ruled lines and a check mark
+accessories:
+  - a fountain pen held in its right hand
+  - a small hourglass held in its left hand
+example: ledger-writer-parchment.webp
