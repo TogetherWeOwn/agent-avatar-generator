@@ -11,9 +11,10 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the eleven approved TWO avatars in [`examples/`](examples). The first seven
-are the originals. Security Engineer, UX Designer, Applied Cryptography Reviewer
-and Release Manager were made with this tool.
+These are the twelve approved TWO avatars in [`examples/`](examples): the eleven
+agents plus the Paperclip Operator (the board operator account). The first seven
+are the originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
+Release Manager and Paperclip Operator were made with this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
@@ -30,6 +31,11 @@ See [Asset provenance](#asset-provenance).
 | :---: | :---: | :---: | :---: |
 | <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> | <img src="examples/applied-cryptography-reviewer-sky.webp" width="160" alt="Applied Cryptography Reviewer avatar"> | <img src="examples/release-manager-navy.webp" width="160" alt="Release Manager avatar"> |
 | `security-engineer` | `ux-designer` | `applied-cryptography-reviewer` | `release-manager` |
+
+| Paperclip Operator (steel blue) |
+| :---: |
+| <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
+| `paperclip-operator` |
 
 ## Install
 
@@ -72,7 +78,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer` and `release-manager` examples were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` examples were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -142,7 +148,7 @@ You can also run it as `python -m agent_avatar_generator ...`.
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
 inspecting the example images. The `security-engineer`, `ux-designer`,
-`applied-cryptography-reviewer` and `release-manager` presets are the specs their examples were generated from.
+`applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` presets are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -159,6 +165,7 @@ The prompt template is
 | `ux-designer` | lilac `#c39bf6` | dot eyes and smile, paint palette, stylus, pen-tool emblem |
 | `applied-cryptography-reviewer` | sky blue `#46b3f0` | focused square eyes, gold monocle, hex ciphertext scroll, gold key emblem |
 | `release-manager` | royal navy `#3457d5` | star eyes and confident smile, white-and-gold rocket, shipping box, gold version-tag emblem |
+| `paperclip-operator` | steel blue `#5f86b8` | calm square eyes over a blinking `_` cursor, headset with boom mic, checkmark clipboard, silver paperclip emblem |
 
 ## Manifest
 

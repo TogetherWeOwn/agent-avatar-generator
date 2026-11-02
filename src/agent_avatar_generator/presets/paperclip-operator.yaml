@@ -1,0 +1,15 @@
+id: paperclip-operator
+role: Paperclip Operator
+color_name: steel blue
+palette:
+  primary: "#5f86b8"
+  highlight: "#b8d0ee"
+  outline: "#16233a"
+  screen: "#060d18"
+  glyph: "#7dffd0"
+face: two calm rounded-square eyes above a small blinking cursor "_"
+emblem: a small silver paperclip
+accessories:
+  - a headset with a small boom microphone
+  - a tiny clipboard with a green checkmark held in one hand
+example: paperclip-operator-steel.webp

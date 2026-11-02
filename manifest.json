@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer and release-manager examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager and paperclip-operator examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -171,6 +171,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Engineering Lead.\nColor palette (violet): head and body #673bef, highlights #9d81f8, outlines and shadows #22125c, face screen #160036, glowing face symbols #c0f0e0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a terminal prompt \">_\" in place of eyes, glowing in #c0f0e0 on the dark screen.\nChest emblem: a small mint org-chart / hierarchy icon on the chest.\nAccessories: three thin antennae on top of the head, each ending in a glowing mint bulb.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/engineering-lead.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/paperclip-operator-steel.webp",
+      "preset": "paperclip-operator",
+      "sha256": "24f8998d5b61983b54a74f0887e5f0b20e80d8aee33b2247b1edde1fd4ce5eb2",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset paperclip-operator",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Paperclip Operator",
+          "palette": {
+            "primary": "#5f86b8",
+            "highlight": "#b8d0ee",
+            "outline": "#16233a",
+            "screen": "#060d18",
+            "glyph": "#7dffd0"
+          },
+          "color_name": "steel blue",
+          "name": null,
+          "face": "two calm rounded-square eyes above a small blinking cursor \"_\"",
+          "emblem": "a small silver paperclip",
+          "accessories": [
+            "a headset with a small boom microphone",
+            "a tiny clipboard with a green checkmark held in one hand"
+          ],
+          "preset_id": "paperclip-operator"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Paperclip Operator.\nColor palette (steel blue): head and body #5f86b8, highlights #b8d0ee, outlines and shadows #16233a, face screen #060d18, glowing face symbols #7dffd0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two calm rounded-square eyes above a small blinking cursor \"_\", glowing in #7dffd0 on the dark screen.\nChest emblem: a small silver paperclip.\nAccessories: a headset with a small boom microphone; a tiny clipboard with a green checkmark held in one hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/paperclip-operator-steel.webp"
           ],
           "size": "1024x1024",
           "quality": "high",
