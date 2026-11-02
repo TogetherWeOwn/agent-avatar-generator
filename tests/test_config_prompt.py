@@ -23,6 +23,7 @@ EXPECTED_PRESETS = {
     "ux-designer",
     "applied-cryptography-reviewer",
     "release-manager",
+    "paperclip-operator",
 }
 
 PALETTE = {"primary": "#112233", "highlight": "#445566", "outline": "#000000", "screen": "#101010", "glyph": "#FFFFFF"}
@@ -46,6 +47,7 @@ def test_all_presets_load():
         ("ux-designer", "lilac"),
         ("applied-cryptography-reviewer", "sky blue"),
         ("release-manager", "royal navy"),
+        ("paperclip-operator", "steel blue"),
     ],
 )
 def test_named_color_presets(preset_id, color):

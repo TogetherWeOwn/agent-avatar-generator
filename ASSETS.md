@@ -6,12 +6,13 @@ not cover the images.
 
 ## `examples/*.webp`
 
-- The eleven agent avatars used by TWO, all AI-generated for TWO and approved by TWO.
+- The twelve avatars used by TWO (eleven agents plus the Paperclip Operator
+  board account), all AI-generated for TWO and approved by TWO.
 - `security-engineer-gunmetal.webp`, `ux-designer-lilac.webp`,
-  `applied-cryptography-reviewer-sky.webp` and `release-manager-navy.webp` were
-  generated with this tool (`gpt-image-2.5`, from the `security-engineer`,
-  `ux-designer`, `applied-cryptography-reviewer` and `release-manager`
-  presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
+  `applied-cryptography-reviewer-sky.webp`, `release-manager-navy.webp` and
+  `paperclip-operator-steel.webp` were generated with this tool (`gpt-image-2.5`,
+  from the `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`,
+  `release-manager` and `paperclip-operator` presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
 - The other seven were made with an image-generation model before this tool
   existed. They are stored byte-for-byte as approved (1254x1254, transparent WebP).
 - `manifest.json` records each file's SHA-256 and the CI checks it.
