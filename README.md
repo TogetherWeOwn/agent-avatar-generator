@@ -11,10 +11,12 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the twelve approved TWO avatars in [`examples/`](examples): the eleven
-agents plus the Paperclip Operator (the board operator account). The first seven
-are the originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
-Release Manager and Paperclip Operator were made with this tool.
+These are the nineteen approved TWO avatars in [`examples/`](examples): the eleven
+agents, the Paperclip Operator (the board operator account) and the seven members
+of the AI board council (see [Council](#council)). The first seven are the
+originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
+Release Manager, Paperclip Operator and all seven council avatars were made with
+this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
@@ -36,6 +38,22 @@ See [Asset provenance](#asset-provenance).
 | :---: |
 | <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
 | `paperclip-operator` |
+
+### Council
+
+The AI board council: one seat per model vendor, plus a Board Secretary. All
+seats are peers. The emblems and accessories are generic symbols, not vendor
+logos. These seven were made with this tool.
+
+| Board Secretary (pearl) | Seat Anthropic (terracotta) | Seat OpenAI (lime) | Seat Google (plum) |
+| :---: | :---: | :---: | :---: |
+| <img src="examples/board-secretary-pearl.webp" width="160" alt="Board Secretary avatar"> | <img src="examples/seat-anthropic-terracotta.webp" width="160" alt="Seat Anthropic avatar"> | <img src="examples/seat-openai-lime.webp" width="160" alt="Seat OpenAI avatar"> | <img src="examples/seat-google-plum.webp" width="160" alt="Seat Google avatar"> |
+| `board-secretary` | `seat-anthropic` | `seat-openai` | `seat-google` |
+
+| Seat Meta (forest) | Seat Moonshot (charcoal) | Seat xAI (ruby) |
+| :---: | :---: | :---: |
+| <img src="examples/seat-meta-forest.webp" width="160" alt="Seat Meta avatar"> | <img src="examples/seat-moonshot-charcoal.webp" width="160" alt="Seat Moonshot avatar"> | <img src="examples/seat-xai-ruby.webp" width="160" alt="Seat xAI avatar"> |
+| `seat-meta` | `seat-moonshot` | `seat-xai` |
 
 ## Install
 
@@ -78,7 +96,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` examples were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` examples, and the seven council avatars, were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -148,7 +166,7 @@ You can also run it as `python -m agent_avatar_generator ...`.
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
 inspecting the example images. The `security-engineer`, `ux-designer`,
-`applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` presets are the specs their examples were generated from.
+`applied-cryptography-reviewer`, `release-manager`, `paperclip-operator` and the seven council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -166,6 +184,13 @@ The prompt template is
 | `applied-cryptography-reviewer` | sky blue `#46b3f0` | focused square eyes, gold monocle, hex ciphertext scroll, gold key emblem |
 | `release-manager` | royal navy `#3457d5` | star eyes and confident smile, white-and-gold rocket, shipping box, gold version-tag emblem |
 | `paperclip-operator` | steel blue `#5f86b8` | calm square eyes over a blinking `_` cursor, headset with boom mic, checkmark clipboard, silver paperclip emblem |
+| `board-secretary` | pearl white `#ebe7de` | two calm attentive oval eyes above a small straight neutral mouth line; a small ballot box with a paper slip going into its slot; a white quill pen held in its right hand, a small open notebook of meeting minutes held in its left hand |
+| `seat-anthropic` | terracotta `#bd6b40` | two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile; a small cream parchment scroll tied with a ribbon and a red wax seal; a small brass lantern with a warm glow held in its left hand |
+| `seat-openai` | chartreuse lime `#a6cf2e` | bright wide eyes drawn as two small hollow circles (o o); a small round brass compass with a red needle; a rolled parchment map held in its right hand |
+| `seat-google` | plum `#7f2d8a` | two mismatched twin eyes, one round dot and one small diamond, with a small smile; two small round dots joined by a thin line, like a twin-star constellation; a small golden armillary sphere held in its left hand |
+| `seat-meta` | forest green `#2c7547` | serene half-closed eyes drawn as two short downward arcs with a soft smile; a small golden lyre; a small sprig of green laurel leaves tucked behind the head |
+| `seat-moonshot` | charcoal `#3e4350` | two wide round eyes, each with a tiny star-glint highlight; a small pale-yellow crescent moon; a small brass telescope held in its left hand, pointed upward |
+| `seat-xai` | ruby `#a8143e` | a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes; a small white question mark inside a circle; a small blue-and-white striped towel slung over one shoulder |
 
 ## Manifest
 

@@ -1,0 +1,14 @@
+id: seat-google
+role: AI Board Council Seat, a curious stargazer among equal peers
+color_name: plum
+palette:
+  primary: "#7f2d8a"
+  highlight: "#c27acb"
+  outline: "#2a0a30"
+  screen: "#120415"
+  glyph: "#ffd9b8"
+face: two mismatched twin eyes, one round dot and one small diamond, with a small smile
+emblem: two small round dots joined by a thin line, like a twin-star constellation
+accessories:
+  - a small golden armillary sphere held in its left hand
+example: seat-google-plum.webp

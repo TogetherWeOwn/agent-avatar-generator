@@ -1,0 +1,14 @@
+id: seat-anthropic
+role: AI Board Council Seat, a thoughtful charter-keeper among equal peers
+color_name: terracotta
+palette:
+  primary: "#bd6b40"
+  highlight: "#eaa57e"
+  outline: "#4a1c0b"
+  screen: "#1c0904"
+  glyph: "#ffe6c7"
+face: two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile
+emblem: a small cream parchment scroll tied with a ribbon and a red wax seal
+accessories:
+  - a small brass lantern with a warm glow held in its left hand
+example: seat-anthropic-terracotta.webp

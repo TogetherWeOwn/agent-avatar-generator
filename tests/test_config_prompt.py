@@ -24,6 +24,13 @@ EXPECTED_PRESETS = {
     "applied-cryptography-reviewer",
     "release-manager",
     "paperclip-operator",
+    "board-secretary",
+    "seat-anthropic",
+    "seat-openai",
+    "seat-google",
+    "seat-meta",
+    "seat-moonshot",
+    "seat-xai",
 }
 
 PALETTE = {"primary": "#112233", "highlight": "#445566", "outline": "#000000", "screen": "#101010", "glyph": "#FFFFFF"}
@@ -48,6 +55,13 @@ def test_all_presets_load():
         ("applied-cryptography-reviewer", "sky blue"),
         ("release-manager", "royal navy"),
         ("paperclip-operator", "steel blue"),
+        ("board-secretary", "pearl white"),
+        ("seat-anthropic", "terracotta"),
+        ("seat-openai", "chartreuse lime"),
+        ("seat-google", "plum"),
+        ("seat-meta", "forest green"),
+        ("seat-moonshot", "charcoal"),
+        ("seat-xai", "ruby"),
     ],
 )
 def test_named_color_presets(preset_id, color):

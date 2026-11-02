@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager and paperclip-operator examples were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager and paperclip-operator examples, and the seven council examples (board-secretary and the seat-* presets), were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -38,6 +38,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Applied Cryptography Reviewer.\nColor palette (sky blue): head and body #46b3f0, highlights #b3e3ff, outlines and shadows #0f3355, face screen #04101c, glowing face symbols #ffd84d. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: focused square eyes, one slightly narrowed in concentration, glowing in #ffd84d on the dark screen.\nChest emblem: a small golden key icon on the chest.\nAccessories: a round golden monocle over its right eye; a small scroll of hexadecimal ciphertext held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/applied-cryptography-reviewer-sky.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/board-secretary-pearl.webp",
+      "preset": "board-secretary",
+      "sha256": "e227f6045448ae3c2059f509b71c9012cbcd99f763c0c33558af135df1656b94",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset board-secretary",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Board Secretary, a neutral non-voting clerk who runs ballots and takes the minutes",
+          "palette": {
+            "primary": "#ebe7de",
+            "highlight": "#ffffff",
+            "outline": "#3a3631",
+            "screen": "#121110",
+            "glyph": "#8cc4ff"
+          },
+          "color_name": "pearl white",
+          "name": null,
+          "face": "two calm attentive oval eyes above a small straight neutral mouth line",
+          "emblem": "a small ballot box with a paper slip going into its slot",
+          "accessories": [
+            "a white quill pen held in its right hand",
+            "a small open notebook of meeting minutes held in its left hand"
+          ],
+          "preset_id": "board-secretary"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Board Secretary, a neutral non-voting clerk who runs ballots and takes the minutes.\nColor palette (pearl white): head and body #ebe7de, highlights #ffffff, outlines and shadows #3a3631, face screen #121110, glowing face symbols #8cc4ff. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two calm attentive oval eyes above a small straight neutral mouth line, glowing in #8cc4ff on the dark screen.\nChest emblem: a small ballot box with a paper slip going into its slot.\nAccessories: a white quill pen held in its right hand; a small open notebook of meeting minutes held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/board-secretary-pearl.webp"
           ],
           "size": "1024x1024",
           "quality": "high",
@@ -349,6 +394,270 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Release Manager.\nColor palette (royal navy): head and body #3457d5, highlights #93aef5, outlines and shadows #14215c, face screen #060d2e, glowing face symbols #ffdf6b. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: proud eyes drawn as two small four-pointed stars with a small confident smile, glowing in #ffdf6b on the dark screen.\nChest emblem: a small golden version tag icon on the chest.\nAccessories: a small white-and-gold rocket held up in its right hand; a tiny sealed cardboard shipping box held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/release-manager-navy.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-anthropic-terracotta.webp",
+      "preset": "seat-anthropic",
+      "sha256": "8874ca9714184db008db53c82c25e2bb88b4a58781a6e140b13f17f0ba113893",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-anthropic",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat, a thoughtful charter-keeper among equal peers",
+          "palette": {
+            "primary": "#bd6b40",
+            "highlight": "#eaa57e",
+            "outline": "#4a1c0b",
+            "screen": "#1c0904",
+            "glyph": "#ffe6c7"
+          },
+          "color_name": "terracotta",
+          "name": null,
+          "face": "two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile",
+          "emblem": "a small cream parchment scroll tied with a ribbon and a red wax seal",
+          "accessories": [
+            "a small brass lantern with a warm glow held in its left hand"
+          ],
+          "preset_id": "seat-anthropic"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat, a thoughtful charter-keeper among equal peers.\nColor palette (terracotta): head and body #bd6b40, highlights #eaa57e, outlines and shadows #4a1c0b, face screen #1c0904, glowing face symbols #ffe6c7. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile, glowing in #ffe6c7 on the dark screen.\nChest emblem: a small cream parchment scroll tied with a ribbon and a red wax seal.\nAccessories: a small brass lantern with a warm glow held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-anthropic-terracotta.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-google-plum.webp",
+      "preset": "seat-google",
+      "sha256": "8e0933ffcac4e5b7d344a61e60dd8137ee9a9c8979ed88da3ce0579aea768196",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-google",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat, a curious stargazer among equal peers",
+          "palette": {
+            "primary": "#7f2d8a",
+            "highlight": "#c27acb",
+            "outline": "#2a0a30",
+            "screen": "#120415",
+            "glyph": "#ffd9b8"
+          },
+          "color_name": "plum",
+          "name": null,
+          "face": "two mismatched twin eyes, one round dot and one small diamond, with a small smile",
+          "emblem": "two small round dots joined by a thin line, like a twin-star constellation",
+          "accessories": [
+            "a small golden armillary sphere held in its left hand"
+          ],
+          "preset_id": "seat-google"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat, a curious stargazer among equal peers.\nColor palette (plum): head and body #7f2d8a, highlights #c27acb, outlines and shadows #2a0a30, face screen #120415, glowing face symbols #ffd9b8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two mismatched twin eyes, one round dot and one small diamond, with a small smile, glowing in #ffd9b8 on the dark screen.\nChest emblem: two small round dots joined by a thin line, like a twin-star constellation.\nAccessories: a small golden armillary sphere held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-google-plum.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-meta-forest.webp",
+      "preset": "seat-meta",
+      "sha256": "b832a02474c7f199dbc881312fe485c2cca1b8453729e171f41e80305a53b186",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-meta",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat, a serene muse among equal peers",
+          "palette": {
+            "primary": "#2c7547",
+            "highlight": "#6fbf86",
+            "outline": "#0b2616",
+            "screen": "#04100a",
+            "glyph": "#f7e08a"
+          },
+          "color_name": "forest green",
+          "name": null,
+          "face": "serene half-closed eyes drawn as two short downward arcs with a soft smile",
+          "emblem": "a small golden lyre",
+          "accessories": [
+            "a small sprig of green laurel leaves tucked behind the head"
+          ],
+          "preset_id": "seat-meta"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat, a serene muse among equal peers.\nColor palette (forest green): head and body #2c7547, highlights #6fbf86, outlines and shadows #0b2616, face screen #04100a, glowing face symbols #f7e08a. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: serene half-closed eyes drawn as two short downward arcs with a soft smile, glowing in #f7e08a on the dark screen.\nChest emblem: a small golden lyre.\nAccessories: a small sprig of green laurel leaves tucked behind the head.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-meta-forest.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-moonshot-charcoal.webp",
+      "preset": "seat-moonshot",
+      "sha256": "ca9a29e50e6f9dbacd87526bd4b74a241fc0a658370e599d9d9e09f29f64f339",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-moonshot",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat, a night-sky observer among equal peers",
+          "palette": {
+            "primary": "#3e4350",
+            "highlight": "#8a92a6",
+            "outline": "#0b0d12",
+            "screen": "#020305",
+            "glyph": "#fff4b8"
+          },
+          "color_name": "charcoal",
+          "name": null,
+          "face": "two wide round eyes, each with a tiny star-glint highlight",
+          "emblem": "a small pale-yellow crescent moon",
+          "accessories": [
+            "a small brass telescope held in its left hand, pointed upward"
+          ],
+          "preset_id": "seat-moonshot"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat, a night-sky observer among equal peers.\nColor palette (charcoal): head and body #3e4350, highlights #8a92a6, outlines and shadows #0b0d12, face screen #020305, glowing face symbols #fff4b8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two wide round eyes, each with a tiny star-glint highlight, glowing in #fff4b8 on the dark screen.\nChest emblem: a small pale-yellow crescent moon.\nAccessories: a small brass telescope held in its left hand, pointed upward.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-moonshot-charcoal.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-openai-lime.webp",
+      "preset": "seat-openai",
+      "sha256": "16a1ca395cb57e01f1f059f1468ea489721c095293b27c5e7763db940f5d28f3",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-openai",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat, a bold explorer among equal peers",
+          "palette": {
+            "primary": "#a6cf2e",
+            "highlight": "#dcf28c",
+            "outline": "#2f3d08",
+            "screen": "#0d1302",
+            "glyph": "#f2ffd0"
+          },
+          "color_name": "chartreuse lime",
+          "name": null,
+          "face": "bright wide eyes drawn as two small hollow circles (o o)",
+          "emblem": "a small round brass compass with a red needle",
+          "accessories": [
+            "a rolled parchment map held in its right hand"
+          ],
+          "preset_id": "seat-openai"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat, a bold explorer among equal peers.\nColor palette (chartreuse lime): head and body #a6cf2e, highlights #dcf28c, outlines and shadows #2f3d08, face screen #0d1302, glowing face symbols #f2ffd0. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: bright wide eyes drawn as two small hollow circles (o o), glowing in #f2ffd0 on the dark screen.\nChest emblem: a small round brass compass with a red needle.\nAccessories: a rolled parchment map held in its right hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-openai-lime.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/seat-xai-ruby.webp",
+      "preset": "seat-xai",
+      "sha256": "9453f041832c2536a6781836de5dcff053cc397d1608fbe0fbb7faedba8d40e6",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset seat-xai",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "AI Board Council Seat (alternate), a witty questioner among equal peers",
+          "palette": {
+            "primary": "#a8143e",
+            "highlight": "#e8607f",
+            "outline": "#3d0414",
+            "screen": "#180208",
+            "glyph": "#ffe0e8"
+          },
+          "color_name": "ruby",
+          "name": null,
+          "face": "a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes",
+          "emblem": "a small white question mark inside a circle",
+          "accessories": [
+            "a small blue-and-white striped towel slung over one shoulder"
+          ],
+          "preset_id": "seat-xai"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: AI Board Council Seat (alternate), a witty questioner among equal peers.\nColor palette (ruby): head and body #a8143e, highlights #e8607f, outlines and shadows #3d0414, face screen #180208, glowing face symbols #ffe0e8. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes, glowing in #ffe0e8 on the dark screen.\nChest emblem: a small white question mark inside a circle.\nAccessories: a small blue-and-white striped towel slung over one shoulder.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/seat-xai-ruby.webp"
           ],
           "size": "1024x1024",
           "quality": "high",

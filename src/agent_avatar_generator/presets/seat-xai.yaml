@@ -1,0 +1,14 @@
+id: seat-xai
+role: AI Board Council Seat (alternate), a witty questioner among equal peers
+color_name: ruby
+palette:
+  primary: "#a8143e"
+  highlight: "#e8607f"
+  outline: "#3d0414"
+  screen: "#180208"
+  glyph: "#ffe0e8"
+face: a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes
+emblem: a small white question mark inside a circle
+accessories:
+  - a small blue-and-white striped towel slung over one shoulder
+example: seat-xai-ruby.webp

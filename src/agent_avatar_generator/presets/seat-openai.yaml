@@ -1,0 +1,14 @@
+id: seat-openai
+role: AI Board Council Seat, a bold explorer among equal peers
+color_name: chartreuse lime
+palette:
+  primary: "#a6cf2e"
+  highlight: "#dcf28c"
+  outline: "#2f3d08"
+  screen: "#0d1302"
+  glyph: "#f2ffd0"
+face: bright wide eyes drawn as two small hollow circles (o o)
+emblem: a small round brass compass with a red needle
+accessories:
+  - a rolled parchment map held in its right hand
+example: seat-openai-lime.webp
