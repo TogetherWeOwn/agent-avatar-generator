@@ -11,10 +11,12 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the twelve approved TWO avatars in [`examples/`](examples): the eleven
-agents plus the Paperclip Operator (the board operator account). The first seven
-are the originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
-Release Manager and Paperclip Operator were made with this tool.
+These are the nineteen approved TWO avatars in [`examples/`](examples): the eleven
+agents, the Paperclip Operator (the board operator account) and the seven members
+of the AI board council (see [Council](#council)). The first seven are the
+originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
+Release Manager, Paperclip Operator and all seven council avatars were made with
+this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
