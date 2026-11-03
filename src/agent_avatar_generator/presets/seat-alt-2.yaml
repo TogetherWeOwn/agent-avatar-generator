@@ -1,0 +1,15 @@
+id: seat-alt-2
+role: Board council alternate seat, a calm independent voter who weighs every motion on the evidence
+color_name: aqua
+palette:
+  primary: "#2ec4b6"
+  highlight: "#a8efe7"
+  outline: "#0f3d39"
+  screen: "#0a1615"
+  glyph: "#7ff5e6"
+face: two steady level eyes drawn as short horizontal ovals above a small neutral straight mouth
+emblem: a small pair of balanced scales
+accessories:
+  - a folded ballot slip held in its right hand
+  - a small pocket notebook clipped to its side
+example: seat-alt-2-aqua.webp

@@ -23,6 +23,8 @@ EXPECTED_PRESETS = {
     "ux-designer",
     "applied-cryptography-reviewer",
     "release-manager",
+    "ledger-writer",
+    "reverse-engineer",
     "paperclip-operator",
     "board-secretary",
     "seat-anthropic",
@@ -31,6 +33,7 @@ EXPECTED_PRESETS = {
     "seat-meta",
     "seat-moonshot",
     "seat-xai",
+    "seat-alt-2",
 }
 
 PALETTE = {"primary": "#112233", "highlight": "#445566", "outline": "#000000", "screen": "#101010", "glyph": "#FFFFFF"}
@@ -62,6 +65,7 @@ def test_all_presets_load():
         ("seat-meta", "forest green"),
         ("seat-moonshot", "charcoal"),
         ("seat-xai", "ruby"),
+        ("seat-alt-2", "aqua"),
     ],
 )
 def test_named_color_presets(preset_id, color):

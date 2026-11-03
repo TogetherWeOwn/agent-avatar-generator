@@ -11,12 +11,12 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the nineteen approved TWO avatars in [`examples/`](examples): the eleven
-agents, the Paperclip Operator (the board operator account) and the seven members
+These are the twenty-two approved TWO avatars in [`examples/`](examples): the thirteen
+agents, the Paperclip Operator (the board operator account) and the eight members
 of the AI board council (see [Council](#council)). The first seven are the
 originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
-Release Manager, Paperclip Operator and all seven council avatars were made with
-this tool.
+Release Manager, Ledger Writer, Reverse Engineer, Paperclip Operator and all eight council avatars
+were made with this tool.
 See [Asset provenance](#asset-provenance).
 
 | Chief of Staff | Engineering Lead | Software Engineer 1 | Software Engineer 2 |
@@ -34,26 +34,26 @@ See [Asset provenance](#asset-provenance).
 | <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> | <img src="examples/applied-cryptography-reviewer-sky.webp" width="160" alt="Applied Cryptography Reviewer avatar"> | <img src="examples/release-manager-navy.webp" width="160" alt="Release Manager avatar"> |
 | `security-engineer` | `ux-designer` | `applied-cryptography-reviewer` | `release-manager` |
 
-| Paperclip Operator (steel blue) |
-| :---: |
-| <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
-| `paperclip-operator` |
+| Ledger Writer (parchment tan) | Reverse Engineer (rose gold) | Paperclip Operator (steel blue) |
+| :---: | :---: | :---: |
+| <img src="examples/ledger-writer-parchment.webp" width="160" alt="Ledger Writer avatar"> | <img src="examples/reverse-engineer-rosegold.webp" width="160" alt="Reverse Engineer avatar"> | <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
+| `ledger-writer` | `reverse-engineer` | `paperclip-operator` |
 
 ### Council
 
 The AI board council: one seat per model vendor, plus a Board Secretary. All
 seats are peers. The emblems and accessories are generic symbols, not vendor
-logos. These seven were made with this tool.
+logos. These eight were made with this tool.
 
 | Board Secretary (pearl) | Seat Anthropic (terracotta) | Seat OpenAI (lime) | Seat Google (plum) |
 | :---: | :---: | :---: | :---: |
 | <img src="examples/board-secretary-pearl.webp" width="160" alt="Board Secretary avatar"> | <img src="examples/seat-anthropic-terracotta.webp" width="160" alt="Seat Anthropic avatar"> | <img src="examples/seat-openai-lime.webp" width="160" alt="Seat OpenAI avatar"> | <img src="examples/seat-google-plum.webp" width="160" alt="Seat Google avatar"> |
 | `board-secretary` | `seat-anthropic` | `seat-openai` | `seat-google` |
 
-| Seat Meta (forest) | Seat Moonshot (charcoal) | Seat xAI (ruby) |
-| :---: | :---: | :---: |
-| <img src="examples/seat-meta-forest.webp" width="160" alt="Seat Meta avatar"> | <img src="examples/seat-moonshot-charcoal.webp" width="160" alt="Seat Moonshot avatar"> | <img src="examples/seat-xai-ruby.webp" width="160" alt="Seat xAI avatar"> |
-| `seat-meta` | `seat-moonshot` | `seat-xai` |
+| Seat Meta (forest) | Seat Moonshot (charcoal) | Seat xAI (ruby) | Seat Alternate 2 (aqua) |
+| :---: | :---: | :---: | :---: |
+| <img src="examples/seat-meta-forest.webp" width="160" alt="Seat Meta avatar"> | <img src="examples/seat-moonshot-charcoal.webp" width="160" alt="Seat Moonshot avatar"> | <img src="examples/seat-xai-ruby.webp" width="160" alt="Seat xAI avatar"> | <img src="examples/seat-alt-2-aqua.webp" width="160" alt="Seat Alternate 2 avatar"> |
+| `seat-meta` | `seat-moonshot` | `seat-xai` | `seat-alt-2` |
 
 ## Install
 
@@ -96,7 +96,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager` and `paperclip-operator` examples, and the seven council avatars, were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer` and `paperclip-operator` examples, and the eight council avatars, were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -166,7 +166,7 @@ You can also run it as `python -m agent_avatar_generator ...`.
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
 inspecting the example images. The `security-engineer`, `ux-designer`,
-`applied-cryptography-reviewer`, `release-manager`, `paperclip-operator` and the seven council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
+`applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `paperclip-operator` and the eight council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -184,6 +184,8 @@ The prompt template is
 | `applied-cryptography-reviewer` | sky blue `#46b3f0` | focused square eyes, gold monocle, hex ciphertext scroll, gold key emblem |
 | `release-manager` | royal navy `#3457d5` | star eyes and confident smile, white-and-gold rocket, shipping box, gold version-tag emblem |
 | `paperclip-operator` | steel blue `#5f86b8` | calm square eyes over a blinking `_` cursor, headset with boom mic, checkmark clipboard, silver paperclip emblem |
+| `ledger-writer` | parchment tan `#c9a66b` | two patient half-lidded oval eyes above a small content curved mouth; an open ledger book with neat ruled lines and a check mark; a fountain pen held in its right hand, a small hourglass held in its left hand |
+| `reverse-engineer` | rose gold `#d4917f` | two focused round eyes, one slightly narrowed as if peering closely, above a small thoughtful flat mouth; a magnifying glass over a small circuit-board pattern; a jeweler's loupe flipped up on its head, a small notepad with a sketched wireframe held in its left hand |
 | `board-secretary` | pearl white `#ebe7de` | two calm attentive oval eyes above a small straight neutral mouth line; a small ballot box with a paper slip going into its slot; a white quill pen held in its right hand, a small open notebook of meeting minutes held in its left hand |
 | `seat-anthropic` | terracotta `#bd6b40` | two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile; a small cream parchment scroll tied with a ribbon and a red wax seal; a small brass lantern with a warm glow held in its left hand |
 | `seat-openai` | chartreuse lime `#a6cf2e` | bright wide eyes drawn as two small hollow circles (o o); a small round brass compass with a red needle; a rolled parchment map held in its right hand |
@@ -191,6 +193,7 @@ The prompt template is
 | `seat-meta` | forest green `#2c7547` | serene half-closed eyes drawn as two short downward arcs with a soft smile; a small golden lyre; a small sprig of green laurel leaves tucked behind the head |
 | `seat-moonshot` | charcoal `#3e4350` | two wide round eyes, each with a tiny star-glint highlight; a small pale-yellow crescent moon; a small brass telescope held in its left hand, pointed upward |
 | `seat-xai` | ruby `#a8143e` | a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes; a small white question mark inside a circle; a small blue-and-white striped towel slung over one shoulder |
+| `seat-alt-2` | aqua `#2ec4b6` | two steady level eyes drawn as short horizontal ovals above a small neutral straight mouth; a small pair of balanced scales; a folded ballot slip held in its right hand, a small pocket notebook clipped to its side |
 
 ## Manifest
 
