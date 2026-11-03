@@ -11,11 +11,11 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the twenty-one approved TWO avatars in [`examples/`](examples): the thirteen
+These are the twenty-two approved TWO avatars in [`examples/`](examples): the thirteen
 agents, the Paperclip Operator (the board operator account) and the seven members
 of the AI board council (see [Council](#council)). The first seven are the
 originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
-Release Manager, Ledger Writer, Reverse Engineer, Paperclip Operator and all seven council avatars
+Release Manager, Ledger Writer, Reverse Engineer, Paperclip Operator and all eight council avatars
 were made with this tool.
 See [Asset provenance](#asset-provenance).
 
@@ -50,10 +50,10 @@ logos. These seven were made with this tool.
 | <img src="examples/board-secretary-pearl.webp" width="160" alt="Board Secretary avatar"> | <img src="examples/seat-anthropic-terracotta.webp" width="160" alt="Seat Anthropic avatar"> | <img src="examples/seat-openai-lime.webp" width="160" alt="Seat OpenAI avatar"> | <img src="examples/seat-google-plum.webp" width="160" alt="Seat Google avatar"> |
 | `board-secretary` | `seat-anthropic` | `seat-openai` | `seat-google` |
 
-| Seat Meta (forest) | Seat Moonshot (charcoal) | Seat xAI (ruby) |
-| :---: | :---: | :---: |
-| <img src="examples/seat-meta-forest.webp" width="160" alt="Seat Meta avatar"> | <img src="examples/seat-moonshot-charcoal.webp" width="160" alt="Seat Moonshot avatar"> | <img src="examples/seat-xai-ruby.webp" width="160" alt="Seat xAI avatar"> |
-| `seat-meta` | `seat-moonshot` | `seat-xai` |
+| Seat Meta (forest) | Seat Moonshot (charcoal) | Seat xAI (ruby) | Seat Alternate 2 (aqua) |
+| :---: | :---: | :---: | :---: |
+| <img src="examples/seat-meta-forest.webp" width="160" alt="Seat Meta avatar"> | <img src="examples/seat-moonshot-charcoal.webp" width="160" alt="Seat Moonshot avatar"> | <img src="examples/seat-xai-ruby.webp" width="160" alt="Seat xAI avatar"> | <img src="examples/seat-alt-2-aqua.webp" width="160" alt="Seat Alternate 2 avatar"> |
+| `seat-meta` | `seat-moonshot` | `seat-xai` | `seat-alt-2` |
 
 ## Install
 
@@ -96,7 +96,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer` and `paperclip-operator` examples, and the seven council avatars, were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer` and `paperclip-operator` examples, and the eight council avatars, were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -166,7 +166,7 @@ You can also run it as `python -m agent_avatar_generator ...`.
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
 inspecting the example images. The `security-engineer`, `ux-designer`,
-`applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `paperclip-operator` and the seven council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
+`applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `paperclip-operator` and the eight council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -193,6 +193,7 @@ The prompt template is
 | `seat-meta` | forest green `#2c7547` | serene half-closed eyes drawn as two short downward arcs with a soft smile; a small golden lyre; a small sprig of green laurel leaves tucked behind the head |
 | `seat-moonshot` | charcoal `#3e4350` | two wide round eyes, each with a tiny star-glint highlight; a small pale-yellow crescent moon; a small brass telescope held in its left hand, pointed upward |
 | `seat-xai` | ruby `#a8143e` | a mischievous lopsided grin with eyes drawn as two small upward-tilted slashes; a small white question mark inside a circle; a small blue-and-white striped towel slung over one shoulder |
+| `seat-alt-2` | aqua `#2ec4b6` | two steady level eyes drawn as short horizontal ovals above a small neutral straight mouth; a small pair of balanced scales; a folded ballot slip held in its right hand, a small pocket notebook clipped to its side |
 
 ## Manifest
 
