@@ -25,6 +25,7 @@ EXPECTED_PRESETS = {
     "release-manager",
     "ledger-writer",
     "reverse-engineer",
+    "agent-toolsmith",
     "paperclip-operator",
     "board-secretary",
     "seat-anthropic",
@@ -66,6 +67,7 @@ def test_all_presets_load():
         ("seat-moonshot", "charcoal"),
         ("seat-xai", "ruby"),
         ("seat-alt-2", "aqua"),
+        ("agent-toolsmith", "olive"),
     ],
 )
 def test_named_color_presets(preset_id, color):
