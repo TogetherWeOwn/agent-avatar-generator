@@ -1,0 +1,15 @@
+id: agent-toolsmith
+role: Agent Toolsmith
+color_name: olive
+palette:
+  primary: "#8a9a2b"
+  highlight: "#cfdc7a"
+  outline: "#2f3a0c"
+  screen: "#0d1203"
+  glyph: "#ffb547"
+face: two focused steady eyes drawn as short flat rectangles with a small determined half-smile
+emblem: a small golden key crossed with a silver wrench on the chest
+accessories:
+  - a tiny silver wrench held in its right hand
+  - a small padlocked toolbox held in its left hand
+example: agent-toolsmith-olive.webp

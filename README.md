@@ -11,11 +11,11 @@ endpoint), together with a prompt built from a saved template and a preset.
 
 ## Gallery
 
-These are the twenty-two approved TWO avatars in [`examples/`](examples): the thirteen
+These are the twenty-three approved TWO avatars in [`examples/`](examples): the fourteen
 agents, the Paperclip Operator (the board operator account) and the eight members
 of the AI board council (see [Council](#council)). The first seven are the
 originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
-Release Manager, Ledger Writer, Reverse Engineer, Paperclip Operator and all eight council avatars
+Release Manager, Ledger Writer, Reverse Engineer, Agent Toolsmith, Paperclip Operator and all eight council avatars
 were made with this tool.
 See [Asset provenance](#asset-provenance).
 
@@ -34,10 +34,10 @@ See [Asset provenance](#asset-provenance).
 | <img src="examples/security-engineer-gunmetal.webp" width="160" alt="Security Engineer avatar"> | <img src="examples/ux-designer-lilac.webp" width="160" alt="UX Designer avatar"> | <img src="examples/applied-cryptography-reviewer-sky.webp" width="160" alt="Applied Cryptography Reviewer avatar"> | <img src="examples/release-manager-navy.webp" width="160" alt="Release Manager avatar"> |
 | `security-engineer` | `ux-designer` | `applied-cryptography-reviewer` | `release-manager` |
 
-| Ledger Writer (parchment tan) | Reverse Engineer (rose gold) | Paperclip Operator (steel blue) |
-| :---: | :---: | :---: |
-| <img src="examples/ledger-writer-parchment.webp" width="160" alt="Ledger Writer avatar"> | <img src="examples/reverse-engineer-rosegold.webp" width="160" alt="Reverse Engineer avatar"> | <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
-| `ledger-writer` | `reverse-engineer` | `paperclip-operator` |
+| Ledger Writer (parchment tan) | Reverse Engineer (rose gold) | Agent Toolsmith (olive) | Paperclip Operator (steel blue) |
+| :---: | :---: | :---: | :---: |
+| <img src="examples/ledger-writer-parchment.webp" width="160" alt="Ledger Writer avatar"> | <img src="examples/reverse-engineer-rosegold.webp" width="160" alt="Reverse Engineer avatar"> | <img src="examples/agent-toolsmith-olive.webp" width="160" alt="Agent Toolsmith avatar"> | <img src="examples/paperclip-operator-steel.webp" width="160" alt="Paperclip Operator avatar"> |
+| `ledger-writer` | `reverse-engineer` | `agent-toolsmith` | `paperclip-operator` |
 
 ### Council
 
@@ -96,7 +96,7 @@ export OPENAI_API_KEY=...        # the proxy's key
 agent-avatar generate --preset security-engineer --model gpt-image-2.5 --size 512
 ```
 
-The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer` and `paperclip-operator` examples, and the eight council avatars, were made this way, with
+The `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `agent-toolsmith` and `paperclip-operator` examples, and the eight council avatars, were made this way, with
 `gpt-image-2.5`. If the proxy does not serve the default `gpt-image-1`, always pass `--model`.
 
 ## Usage
@@ -166,7 +166,7 @@ You can also run it as `python -m agent_avatar_generator ...`.
 Presets live in [`src/agent_avatar_generator/presets/`](src/agent_avatar_generator/presets).
 For the seven original presets, palettes and accessories were inferred by
 inspecting the example images. The `security-engineer`, `ux-designer`,
-`applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `paperclip-operator` and the eight council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
+`applied-cryptography-reviewer`, `release-manager`, `ledger-writer`, `reverse-engineer`, `agent-toolsmith`, `paperclip-operator` and the eight council presets (`board-secretary`, `seat-*`) are the specs their examples were generated from.
 The prompt template is
 [`src/agent_avatar_generator/templates/avatar_prompt.txt`](src/agent_avatar_generator/templates/avatar_prompt.txt).
 
@@ -186,6 +186,7 @@ The prompt template is
 | `paperclip-operator` | steel blue `#5f86b8` | calm square eyes over a blinking `_` cursor, headset with boom mic, checkmark clipboard, silver paperclip emblem |
 | `ledger-writer` | parchment tan `#c9a66b` | two patient half-lidded oval eyes above a small content curved mouth; an open ledger book with neat ruled lines and a check mark; a fountain pen held in its right hand, a small hourglass held in its left hand |
 | `reverse-engineer` | rose gold `#d4917f` | two focused round eyes, one slightly narrowed as if peering closely, above a small thoughtful flat mouth; a magnifying glass over a small circuit-board pattern; a jeweler's loupe flipped up on its head, a small notepad with a sketched wireframe held in its left hand |
+| `agent-toolsmith` | olive `#8a9a2b` | two focused steady eyes drawn as short flat rectangles with a small determined half-smile; a golden key crossed with a silver wrench; a tiny silver wrench held in its right hand, a small padlocked toolbox held in its left hand |
 | `board-secretary` | pearl white `#ebe7de` | two calm attentive oval eyes above a small straight neutral mouth line; a small ballot box with a paper slip going into its slot; a white quill pen held in its right hand, a small open notebook of meeting minutes held in its left hand |
 | `seat-anthropic` | terracotta `#bd6b40` | two thoughtful round eyes, one pixel eyebrow slightly raised, with a small gentle smile; a small cream parchment scroll tied with a ribbon and a red wax seal; a small brass lantern with a warm glow held in its left hand |
 | `seat-openai` | chartreuse lime `#a6cf2e` | bright wide eyes drawn as two small hollow circles (o o); a small round brass compass with a red needle; a rolled parchment map held in its right hand |

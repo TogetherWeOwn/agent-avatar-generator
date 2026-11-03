@@ -6,14 +6,15 @@ not cover the images.
 
 ## `examples/*.webp`
 
-- The twenty-two avatars used by TWO (thirteen agents, the Paperclip Operator
+- The twenty-three avatars used by TWO (fourteen agents, the Paperclip Operator
   board account and the eight council avatars), all AI-generated for TWO and approved by TWO.
 - `security-engineer-gunmetal.webp`, `ux-designer-lilac.webp`,
   `applied-cryptography-reviewer-sky.webp`, `release-manager-navy.webp`,
-  `ledger-writer-parchment.webp`, `reverse-engineer-rosegold.webp` and
+  `ledger-writer-parchment.webp`, `reverse-engineer-rosegold.webp`,
+  `agent-toolsmith-olive.webp` and
   `paperclip-operator-steel.webp` were generated with this tool (`gpt-image-2.5`,
   from the `security-engineer`, `ux-designer`, `applied-cryptography-reviewer`,
-  `release-manager`, `ledger-writer`, `reverse-engineer` and `paperclip-operator` presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
+  `release-manager`, `ledger-writer`, `reverse-engineer`, `agent-toolsmith` and `paperclip-operator` presets). The approved 512x512 PNGs are stored as lossless WebP, pixel for pixel.
 - The eight council avatars (`board-secretary-pearl.webp`,
   `seat-anthropic-terracotta.webp`, `seat-openai-lime.webp`,
   `seat-google-plum.webp`, `seat-meta-forest.webp`,
