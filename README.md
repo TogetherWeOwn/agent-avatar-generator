@@ -12,7 +12,7 @@ endpoint), together with a prompt built from a saved template and a preset.
 ## Gallery
 
 These are the twenty-two approved TWO avatars in [`examples/`](examples): the thirteen
-agents, the Paperclip Operator (the board operator account) and the seven members
+agents, the Paperclip Operator (the board operator account) and the eight members
 of the AI board council (see [Council](#council)). The first seven are the
 originals. Security Engineer, UX Designer, Applied Cryptography Reviewer,
 Release Manager, Ledger Writer, Reverse Engineer, Paperclip Operator and all eight council avatars
@@ -43,7 +43,7 @@ See [Asset provenance](#asset-provenance).
 
 The AI board council: one seat per model vendor, plus a Board Secretary. All
 seats are peers. The emblems and accessories are generic symbols, not vendor
-logos. These seven were made with this tool.
+logos. These eight were made with this tool.
 
 | Board Secretary (pearl) | Seat Anthropic (terracotta) | Seat OpenAI (lime) | Seat Google (plum) |
 | :---: | :---: | :---: | :---: |

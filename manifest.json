@@ -229,9 +229,9 @@
     {
       "file": "examples/ledger-writer-parchment.webp",
       "preset": "ledger-writer",
-      "sha256": "606e30e919cd5efa452ff47d808206cfe014939cea78d2af871fc962e4f8b5ec",
-      "width": 1024,
-      "height": 1024,
+      "sha256": "4f60328e65404feffe00b62e3c447e15e335523d4b65c2866f93a05ea7b28e2d",
+      "width": 512,
+      "height": 512,
       "format": "webp",
       "recipe": {
         "command": "agent-avatar generate --preset ledger-writer",
@@ -452,7 +452,7 @@
     {
       "file": "examples/reverse-engineer-rosegold.webp",
       "preset": "reverse-engineer",
-      "sha256": "c429010cd55915a876e0d03cf14fa65d7012e9ea763d9a72a9b31d3d8cd86002",
+      "sha256": "8d53ee93a45a958db1e73869d3d5c50934bbe5a436e2fda2b276ab32fe6efb98",
       "width": 512,
       "height": 512,
       "format": "webp",
@@ -497,7 +497,7 @@
     {
       "file": "examples/seat-alt-2-aqua.webp",
       "preset": "seat-alt-2",
-      "sha256": "80069d97e431bb8a6e93d4f8292cd69511bfdaf69ac4561c2316e74c506353dc",
+      "sha256": "413977e1d52b9addda85269fa4a215e15ff9cd7f9a8a7cb363e47bbec5b7b0ea",
       "width": 512,
       "height": 512,
       "format": "webp",
