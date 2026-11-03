@@ -1,0 +1,15 @@
+id: reverse-engineer
+role: Reverse Engineer, a meticulous investigator who studies how other apps work and writes clean written specs from the evidence
+color_name: rose gold
+palette:
+  primary: "#d4917f"
+  highlight: "#f2c9bd"
+  outline: "#3a221c"
+  screen: "#120c0b"
+  glyph: "#ffb59e"
+face: two focused round eyes, one slightly narrowed as if peering closely, above a small thoughtful flat mouth
+emblem: a magnifying glass over a small circuit-board pattern
+accessories:
+  - a jeweler's loupe flipped up on its head
+  - a small notepad with a sketched wireframe held in its left hand
+example: reverse-engineer-rosegold.webp

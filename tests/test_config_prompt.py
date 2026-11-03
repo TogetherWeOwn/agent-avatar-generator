@@ -24,6 +24,7 @@ EXPECTED_PRESETS = {
     "applied-cryptography-reviewer",
     "release-manager",
     "ledger-writer",
+    "reverse-engineer",
     "paperclip-operator",
     "board-secretary",
     "seat-anthropic",

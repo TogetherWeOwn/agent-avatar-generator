@@ -1,5 +1,5 @@
 {
-  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager, ledger-writer and paperclip-operator examples, and the seven council examples (board-secretary and the seat-* presets), were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
+  "provenance": "The example images are the approved TWO agent avatars, all AI-generated for TWO. The security-engineer, ux-designer, applied-cryptography-reviewer, release-manager, ledger-writer, reverse-engineer and paperclip-operator examples, and the seven council examples (board-secretary and the seat-* presets), were generated with this tool (gpt-image-2.5, 512 px); the other seven were made with an image-generation model before this tool existed. All are stored as approved, pixel for pixel. Each recipe is the preset and prompt this tool uses to generate a new variant in the same style, not a record of the exact original prompt. Image generation is non-deterministic.",
   "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
   "prompt_template_sha256": "53523d38cc44fc37694c374f026569bd4882ea85a426681a847eaabfe818d1bd",
   "examples": [
@@ -439,6 +439,51 @@
           "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Release Manager.\nColor palette (royal navy): head and body #3457d5, highlights #93aef5, outlines and shadows #14215c, face screen #060d2e, glowing face symbols #ffdf6b. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: proud eyes drawn as two small four-pointed stars with a small confident smile, glowing in #ffdf6b on the dark screen.\nChest emblem: a small golden version tag icon on the chest.\nAccessories: a small white-and-gold rocket held up in its right hand; a tiny sealed cardboard shipping box held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
           "references": [
             "examples/release-manager-navy.webp"
+          ],
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "transparent",
+          "output_format": "png",
+          "input_fidelity": "high",
+          "n": 1
+        }
+      }
+    },
+    {
+      "file": "examples/reverse-engineer-rosegold.webp",
+      "preset": "reverse-engineer",
+      "sha256": "c429010cd55915a876e0d03cf14fa65d7012e9ea763d9a72a9b31d3d8cd86002",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "recipe": {
+        "command": "agent-avatar generate --preset reverse-engineer",
+        "prompt_template": "src/agent_avatar_generator/templates/avatar_prompt.txt",
+        "parameters": {
+          "role": "Reverse Engineer, a meticulous investigator who studies how other apps work and writes clean written specs from the evidence",
+          "palette": {
+            "primary": "#d4917f",
+            "highlight": "#f2c9bd",
+            "outline": "#3a221c",
+            "screen": "#120c0b",
+            "glyph": "#ffb59e"
+          },
+          "color_name": "rose gold",
+          "name": null,
+          "face": "two focused round eyes, one slightly narrowed as if peering closely, above a small thoughtful flat mouth",
+          "emblem": "a magnifying glass over a small circuit-board pattern",
+          "accessories": [
+            "a jeweler's loupe flipped up on its head",
+            "a small notepad with a sketched wireframe held in its left hand"
+          ],
+          "preset_id": "reverse-engineer"
+        },
+        "request": {
+          "endpoint": "images.edit",
+          "model": "gpt-image-1",
+          "prompt": "Create one new character in exactly the same art style as the reference image(s): a cohesive, chunky pixel-art mascot with a large fluffy cloud-shaped head/helmet, a dark rounded-rectangle screen as its face, a small rounded body with stubby arms and legs, thick dark pixel outlines and simple stepped shading. Keep the same proportions, pixel size, outline weight, framing and centered front-facing pose as the references.\n\nCharacter: Reverse Engineer, a meticulous investigator who studies how other apps work and writes clean written specs from the evidence.\nColor palette (rose gold): head and body #d4917f, highlights #f2c9bd, outlines and shadows #3a221c, face screen #120c0b, glowing face symbols #ffb59e. Recolor the whole character to this palette; do not copy the colors of the reference images.\nFace: two focused round eyes, one slightly narrowed as if peering closely, above a small thoughtful flat mouth, glowing in #ffb59e on the dark screen.\nChest emblem: a magnifying glass over a small circuit-board pattern.\nAccessories: a jeweler's loupe flipped up on its head; a small notepad with a sketched wireframe held in its left hand.\n\nBackground: fully transparent (alpha channel), no floor, no drop shadow, no scenery, no text, no watermark, no border. Exactly one character, centered with a small even margin.",
+          "references": [
+            "examples/reverse-engineer-rosegold.webp"
           ],
           "size": "1024x1024",
           "quality": "high",
