@@ -57,16 +57,22 @@ logos. These eight were made with this tool.
 
 ## Install
 
-Requires Python 3.10+.
+Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/) 0.13.6+.
+Python 3.10 is no longer supported: patched Pillow 13 requires Python 3.11+.
 
 ```bash
 git clone https://github.com/TogetherWeOwn/agent-avatar-generator
 cd agent-avatar-generator
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[openai]"     # drop [openai] if you only want --dry-run
+uv sync --locked --extra openai     # drop --extra openai for --dry-run only
+source .venv/bin/activate
 ```
 
-Dependencies: Pillow and PyYAML. The `openai` extra (`openai>=1.99`) is only
+The project-local `uv.toml` excludes registry artifacts uploaded in the last three
+days and disables dependency source builds. Dependencies must have compatible
+wheels; do not fall back to source builds. The first-party editable package uses
+its declarative setuptools backend; this is not a blanket dependency build exemption.
+
+Dependencies: Pillow 13+ and PyYAML. The `openai` extra (`openai>=1.99`) is only
 needed to call the API.
 
 Run the commands from the repository root: the default style references are
@@ -222,15 +228,18 @@ agent-avatar manifest --write   # regenerate after changing presets or the templ
 ## Development
 
 ```bash
-pip install -e ".[test]"
-pytest
+uv sync --locked --extra test
+uv run --no-sync pytest
 ```
 
 The tests run fully offline. They mock the image client, block sockets, and
 never need an API key. They cover preset and config loading, prompt
 construction, safe output filenames, size and transparency handling, and
-manifest consistency. CI (GitHub Actions) runs them on Python 3.10 and 3.12,
-along with `agent-avatar manifest` and a dry run.
+manifest consistency, and dependency metadata/lock security floors. CI (GitHub
+Actions) performs a clean locked install and builds the first-party wheel on
+Python 3.11 and 3.12, then runs the tests, `agent-avatar manifest` and a dry run.
+Dependency updates use `uv lock --upgrade-package pillow`; unrelated locked
+versions are retained.
 
 ## Asset provenance
 
