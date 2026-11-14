@@ -1,0 +1,19 @@
+# The highest tier of all changed paths wins, including both rename paths;
+# sensitive wins overlaps and unmatched paths default to sensitive.
+# Content triggers escalate regardless of path: input or endpoint changes;
+# auth, sessions, crypto, secrets, permissions or personal data; schema or
+# migrations; dependencies and locks; CI; weakened tests or lowered gates.
+# This file records policy metadata; it does not install enforcement.
+version: 1
+default_tier: sensitive
+tiers:
+  low: []
+  ordinary: []
+  sensitive:
+    - .github/**
+    - pyproject.toml
+    - uv.lock
+    - uv.toml
+    - manifest.json
+    - src/**
+    - tests/**
