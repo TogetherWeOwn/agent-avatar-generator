@@ -1,0 +1,14 @@
+version: 1
+default_tier: sensitive
+tiers:
+  low:
+    - ASSETS.md
+  ordinary: []
+  sensitive:
+    - .github/**
+    - pyproject.toml
+    - uv.lock
+    - uv.toml
+    - manifest.json
+    - src/**
+    - tests/**
